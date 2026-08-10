@@ -410,7 +410,7 @@ if ("serviceWorker" in navigator) {
     );
 
     navigator.serviceWorker.register(
-        "/Team-S-r/sw.js"
+        "./sw.js"
     )
 
     .then(registration => {

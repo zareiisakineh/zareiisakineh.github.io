@@ -3,14 +3,16 @@
 // PWA CACHE + ONESIGNAL PUSH
 // ==================================================
 
-
+importScripts(
+    "https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.sw.js"
+);
 
 
 // ==================================================
 // CACHE
 // ==================================================
 
-const CACHE_NAME = "team-sor-v44";
+const CACHE_NAME = "team-sor-v45";
 
 const FILES = [
     "./",
