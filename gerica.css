@@ -1,0 +1,725 @@
+ :root {
+  --primary-color: #4a6fa5;
+  --primary-color2:hsl(100, 22%, 86%);
+  --primary-hover: hsl(102, 34%, 77%);
+  --primary-light: #e8f0f9;
+  --secondary-color: #6c5ce7;
+  --accent-color: #fce2cb;
+  --text-color: #2b2d42;
+  --text-light: #8d99ae;
+  --bg-color: #f8f9fa;
+  --card-bg: #ffffff;
+  --border-color: #fffafa;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
+.brand img{
+    height:100px;
+    width:auto;
+    padding-left: 10px;
+    border-radius: 10px 10px;
+    margin-top: 5px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+p{
+  font-size: 1.5rem;
+}
+
+/*Header og meny*/
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap:20px;
+  justify-content: space-between;
+  padding: 0px 40px;
+   background: var(--card-bg);
+  /*
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  */
+}
+
+
+/*
+På desktop ønsker vi at menyen alltid skal vises.Derfor har vi: display:flex. Dette betyr: Vis menyen.
+På en stor skjerm ser det slik ut:
+------------------------------------
+Hjem  Print  Studenter  Prosedyrer
+------------------------------------*/
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 12px;
+}
+
+.nav a {
+  padding: 10px;
+  border-radius: 8px;
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+.nav a:hover {
+  background: var(--primary-light);
+}
+
+.nav a[aria-current="page"] {
+  background: var(--primary-color);
+  color: white;
+}
+
+.menu-toggle {
+  display: none;
+  padding: 8px 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+}
+
+/* Container og kort*/
+.container {
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: 14px;
+  padding: 1rem;
+  margin: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/*Trekkspill (arbeidsliste)*/
+.item {
+  margin-bottom: 1rem;
+  border: 1px solid hsl(144, 57%, 91%);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.question {
+  width: 100%;
+  min-height: 70px;
+  padding: 1rem;
+  background: var(--primary-color2);
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 1.3rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.question:hover {
+  background: var(--primary-hover);
+}
+
+.answer {
+  display: none;
+  background: white;
+  padding: 1rem;
+  font-size: 1.1rem;
+}
+
+.answer.open {
+  display: block;
+}
+
+.answer ul {
+  margin-left: 1.5rem;
+}
+
+.icon {
+  transition: transform 0.3s;
+}
+
+.icon.rotate {
+  transform: rotate(180deg);
+}
+
+/*Mobilvisning*/
+/*
+En mobil har mye mindre plass. Derfor bruker vi @media (max-width:760px). Dette betyr:
+Hvis skjermen er 760 piksler eller mindre, bruk disse CSS-reglene i stedet.
+Nå endrer CSS utseendet.
+.nav ul{
+    display:none;
+}
+    Nå blir menyen skjult.
+-----------------
+☰
+-----------------
+Legg merke til: JavaScript har fortsatt ikke gjort noe. CSS bestemmer bare at menyen skal være skjult.
+}
+*/
+#menuToggle{
+  background-color: rgb(253, 253, 252);
+  border:1px solid rgb(253, 253, 252);
+  padding: 2px 20px;
+  font-size: 2rem;
+}
+/*-------------------------------------------Mobil-------------------------------*/
+/*--------------------------------------------------------------------------------*/
+@media screen and (max-width: 760px) {
+  .menu-toggle {
+    display: block;
+  }
+  .topbar{
+    padding: 0px 10px;
+    display: flex;
+    flex-wrap:wrap;
+    align-items:flex-start;
+    gap:0;
+  }
+  .brand{
+        order:1;
+  }
+  .brand img{
+    height:3.6rem;
+    width:auto;
+    padding-left: 5px;
+    padding-bottom: 0px;
+}
+/*
+Brukeren klikker -> JavaScript kjører -> class="open" legges til -> CSS ser den nye klassen -> display:flex ->
+Menyen vises*/
+  .nav ul {
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 50px;
+    width: 230px;
+    background: rgb(218, 217, 217);
+    border-radius: 12px;
+    flex-direction: column;
+    padding: 0px;
+    box-shadow: 0 4px 10px rgba(0,0,0,.15);
+    font-size:0.3rem ;
+  }
+  .nav ul.open {
+    display: flex;
+  }
+  .container {
+    padding: 8px;
+    width: 100%;
+  }
+  .card {
+    padding: 0.5rem;
+  }
+  .question {
+    min-height: auto;
+    font-size: 1rem;
+    padding: 15px px;
+  }
+  .answer {
+    font-size: 1rem;
+    padding: 0px 0px;
+  }
+  .answer li {
+    margin-bottom: 8px;
+  }
+   table{
+    padding: 0px;
+  }
+   h2{
+    font-size: 1.3rem;
+    padding-left: 1rem;
+  }
+  }
+
+/*------------------------------------------------------------*/
+  .ithem{
+    width: 100%;
+  }
+  .nav{
+        order:2;
+        margin-left:auto;
+    } 
+ 
+  .card .item{
+    width: 100%;
+  }
+ 
+  .menu-toggle{
+       margin-top: 10px;
+  }
+  .container h1{
+    font-size: 2.5rem;
+  }
+  .card li{
+      list-style: none;
+      font-size: 1.3rem;
+  }
+  
+  
+h1{
+    margin-bottom:2rem;
+}
+.knapp{
+  border:2px solid #8d99ae;
+  margin: 1rem;
+  border-radius: 5px;
+}
+
+/* Search box*/
+.search-box{
+    flex:1;
+    position:relative;
+    max-width:500px;
+}
+
+#searchInput{
+    width:100%;
+    padding:12px 18px;
+    border-radius:10px;
+    border:1px solid hsl(152, 38%, 30%);
+    font-size:1.5rem;
+}
+
+/*flex:1 gjør at søkefeltet fyller plassen mellom logoen og menyen.*/
+
+#searchResults{
+    position:absolute;
+    top:55px;
+    left:0;
+    width:100%;
+    background:white;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+    z-index:1000;
+}
+
+.result{
+    padding:12px;
+    border-bottom:1px solid #eee;
+}
+
+.result:hover{
+    background:#eef4ff;
+}
+
+/*På mobil er det bedre at søkefeltet legger seg under logoen. Legg til:*/
+ @media (max-width:760px){
+    
+  .search-box{
+        order:3;
+        flex:0 0 100%;
+        max-width:100%;
+       margin-top: 5px;
+    }
+
+}
+
+
+/*---------------------------------------------------------------------------------------
+------------------------------------Album------------------------------------------------
+------------------------------------------------------------------------------------------*/
+
+/*body{
+    margin:0;
+    background:#111;
+    font-family:Arial,sans-serif;
+}
+header {
+    text-align: center;
+    padding: 30px 0;
+}
+*/
+
+.gallery{
+    width: 90%;
+    max-width:1400px;
+    margin:40px auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+    gap:20px;
+}
+
+.gallery img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:10px;
+    transition:.3s;
+    cursor:pointer;
+}
+
+.gallery img:hover{
+    transform:scale(2.05);
+}
+/*-----------Bursdagsmelding------------------*/
+/*--------------------------------------------*/
+#bursdagMelding{
+    display: none;
+     background: var(--card-bg);
+    color: #5c4300;
+    border: 2px solid #f0c14b;
+    border-radius: 12px;
+    padding: 18px;
+    margin: 20px auto;
+    max-width: 900px;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    box-shadow: 0 3px 8px rgba(0,0,0,.15);
+}
+
+
+ /*Knapp for å dele bursdagshilsen på WhatsApp*/ 
+#sendWhatsapp{
+  display: none;
+    background: linear-gradient(135deg,#f0eee9,#ffe08a);
+    color: #5c4300;
+    border: 2px solid #f0c14b;
+    border-radius: 12px;
+    padding: 18px;
+    margin: 0px auto;
+    max-width: 900px;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(0,0,0,.15);
+    transition: all 0.3s ease;
+}
+
+/* Når musepekeren er over knappen */
+#sendWhatsapp:hover{
+    background-color: #1EBE5D;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,.2);
+}
+
+/* Når knappen trykkes ned */
+#sendWhatsapp:active{
+    transform: scale(0.97);
+}
+
+/* Tastaturfokus (universell utforming) */
+#sendWhatsapp:focus{
+    outline: 3px solid #45677a;
+    outline-offset: 3px;
+}
+.button-container{
+    text-align: center;
+    margin-top: 30px;
+}
+
+#bursdagMelding{
+    display:none;
+}
+
+#bursdagMelding.vis{
+    display:block;
+}
+
+#sendWhatsapp{
+    display:none;
+}
+
+#sendWhatsapp.vis{
+    display:inline-block;
+}
+
+/*------------------------Install-app knappen-------------------------------------------
+---------------------------------------------------------------------------------------*/
+#installApp {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-top: 25px;
+    padding: 14px 28px;
+
+    background: #2f5d9f;
+    color: white;
+
+    border: none;
+    border-radius: 12px;
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,.15);
+}
+
+#installApp:hover{
+    background:#244a7d;
+    transform:translateY(-3px);
+}
+
+#installApp:active{
+    transform:scale(.97);
+}
+
+#installApp:focus{
+    outline:3px solid #7ab6ff;
+    outline-offset:3px;
+}
+.installInfo{
+    margin-top:12px;
+    color:#555;
+    font-size:.95rem;
+}
+#installApp[hidden]{
+    display:none;
+}
+
+/*-----------------------------------------------------------------------------------------
+-------------------------------------Kontaktkort---------------------------------------------
+---------------------------------------------------------------------------------------------*/
+#ekstravakt, #SPL, #HPL, #PB, #fysio, #ergo, #AKS, #ernæringFysio, #leder, #merkantil, #nattevakt, #vurderingsteam, #responssenter, #fagSPL{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+   
+}
+ 
+.ansattKort{
+    background:white;
+    border-radius:12px;
+    padding:20px;
+    text-align:center;
+    box-shadow:0 3px 8px rgba(0,0,0,.15);
+}
+.ansattKort h3{
+    margin-bottom:8px;
+    color:#2f5d9f;
+}
+.ansattKort p{
+    color:#666;
+    margin-bottom:18px;
+}
+.ikoner{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+}
+.ikoner a{
+    width:42px;
+    height:42px;
+    border-radius:50%; 
+    background:#2f5d9f;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-decoration:none;
+    transition:.2s;
+}
+.ikoner a:hover{
+    background:#1e4374;
+    transform:scale(1.1);
+}
+
+   /* ================================
+   Firebase innlogging
+   ================================ */
+
+#loginBox{
+    max-width: 420px;
+    margin: 20px auto;
+    padding: 25px;
+    background: #f8f9fa;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    text-align: center;
+    
+}
+#logutBox{
+    margin: 20px auto;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+#loginBox h3 {
+    color: #2f5d9f;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+
+#loginBox p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+
+/* Input-felt */
+
+#loginBox input {
+    width: 90%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+
+#loginBox input:focus {
+    outline: none;
+    border-color: #2f5d9f;
+    box-shadow: 0 0 5px rgba(47,93,159,0.4);
+}
+
+
+/* Logg inn/ut knapp */
+
+#loginBtn{
+    width: 90%;
+    margin-top: 15px;
+    padding: 12px;
+    background: #2f5d9f;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+#loggutKnapp{
+    width: 100%;
+    margin-top: 15px;
+    padding: 12px;
+    background: #2f5d9f;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+
+#loginBtn:hover {
+    background: #23477c;
+}
+
+#loggutKnapp:hover {
+    background: #23477c;
+}
+
+
+/* Kontaktkort-beskyttelse */
+
+#beskyttetInnhold {
+    margin-top: 20px;
+}
+
+
+/* Mobil */
+
+@media (max-width: 600px) {
+
+    #loginBox {
+        margin: 15px;
+        padding: 20px;
+       
+    }
+    #logutBox {
+        margin: 15px;
+        padding: 20px;
+       
+    }
+
+    #loginBox h3 {
+        font-size: 1.3rem;
+    }
+
+
+    #loginBox input,
+    #loginBtn,#loggutKnapp {
+        width: 100%;
+    }
+
+}
+
+.ledere .question {
+    background-color: #1E3A5F;
+}
+
+.merkantiler .question {
+    background-color: #607D8B;
+}
+
+/* INSTALLASJONSVINDU */
+
+.install-modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.6);
+    z-index:9999;
+}
+
+.install-content{
+    background:white;
+    width:min(90%,600px);
+    margin:40px auto;
+    padding:25px;
+    border-radius:15px;
+    max-height:85vh;
+    overflow:auto;
+    position:relative;
+}
+
+.install-content h2{
+    margin-bottom:20px;
+}
+
+.install-section{
+    margin-bottom:20px;
+    padding:15px;
+    border:1px solid #ddd;
+    border-radius:10px;
+}
+
+#closeInstallModal{
+    position:absolute;
+    right:15px;
+    top:10px;
+    font-size:2rem;
+    cursor:pointer;
+}

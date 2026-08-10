@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gericaopplæring</title>
+  <link rel="stylesheet" href="gerica.css" />
+  <style>
+    #mittForslag {
+    width: 100%;
+    max-width: 800px;
+    min-height: 200px;
+    padding: 0.5rem;
+    border-radius: 5px;
+    background-color: var(--primary-light);
+    resize: vertical; /* brukeren kan gjøre den høyere */
+    
+}
+.gang-wrapper {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+#medGang {
+    width: 900px;
+    height: auto;
+    flex-shrink: 0;
+}
+
+.gang-tekst {
+    flex: 1;
+}
+
+.gang-tekst p {
+    margin-bottom: 1rem;
+}
+@media (max-width: 900px) {
+    .gang-wrapper {
+        flex-direction: column;
+    }
+
+    #medGang {
+        width: 100%;
+        max-width: 500px;
+    }
+}
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <!--logo-->
+    <div class="brand">
+    <span class="brand-title">
+        <img src="bilder/logo.png" width="350">
+    </span>
+</div>
+
+    <nav class="nav" aria-label="Hovedmeny">
+      <button class="menu-toggle" aria-label="Åpne meny" id="menuToggle" aria-expanded="false">||||</button>
+      <ul id="menu"> 
+         <li><a href="index.html" > Hjem</a></li>
+         <li><a href="forStudenter.html">For studenter</a></li>
+        <li><a href="arbeidsliste.html"> Print</a></li>
+        <!--
+        <li><a href="prosedyrer.html" >prosedyrer</a></li>
+       -->
+        <li><a href="sjekkliste.html">Ansvarsykepleier </a></li>
+        <li><a href="velferdsTeknologi.html">Velferdsteknologi</a></li>
+        <li><a href="gangTid.html" aria-current="page">Gangtid</a></li>
+         <li><a href="Bursdager.html">Bursdager</a></li>
+        <li><a href="rutiner.html" >Rutiner</a></li>
+      </ul>
+      
+    </nav>
+  </header>
+  <main id="main-content" class="container">
+<h2>Nyttige Gerica-funksjoner</h2>
+<section class="hero card">
+     <p class="lead">
+        <strong>Har du glemt hvordan du printer ut arbeidsliste for ansatte fra Gerica?.<br> Husker du ikke hvordan du lager nytt besøk?<br>Slike nyttige funksjoner finner du på denne siden</strong> 
+      </p>
+</section>
+
+<section class="hero card">
+    <label id = "minLable">Hvordan har dagen din vært?</label><br>
+<textarea id="mittForslag"></textarea><br>
+   
+<button type="submit" id = "minSubmit" class = "btn">Send</button>
+    <p id = "resultatElement"></p>
+</section>
+
+   <section class="hero card" id="gang">
+    <h2>Ruteplanlegger med gangtid</h2>
+
+    <div class="gang-wrapper">
+
+        <img src="image8.png" alt="Med gangtid" id="medGang">
+
+        <div class="gang-tekst">
+            <p>
+                <strong>Hva er gangtid:</strong><br>
+                Tiden man bruker fra adresse til adresse
+                (tiden Google Maps viser) + tiden man bruker
+                fra porten til brukers leilighet.
+            </p>
+
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+        </div>
+
+    </div>
+</section>
+
+</main>
+ <script src="app.js" defer></script>
+</body>
+</html>

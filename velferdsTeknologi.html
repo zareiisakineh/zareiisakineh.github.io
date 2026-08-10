@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!------------------Reduserer sjansen for at Google finner siden.----------------------------------->
+     <meta name="robots" content="noindex, nofollow">
+<!------------------------------------------------------------------------------------------>
+    <title>Velferdsteknologi</title>
+    <link rel="stylesheet" href="gerica.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2f5d9f">
+    <link rel="icon" href="images/logo-192.png">
+    <link rel="apple-touch-icon" href="images/logo-192.png">
+    <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+    <style>
+  .answer img{
+     max-width: 500px;
+     margin: 20px;
+  }
+ .rutiner{
+  margin-block: 50px;
+   max-inline-size: 100%;
+   padding-left: 30px;
+ }
+ 
+   @media screen and (max-width: 760px) {
+    .answer img{
+        width: 100%;
+        max-width: 620px;
+       
+        display: block;
+    }
+}
+</style>
+
+</head>
+<body>
+
+  <header class="topbar">
+    <!--logo-->
+    <div class="brand">
+        <img src="images/logo-192.png" alt="Team Sør">
+        
+    </div>
+    <nav class="nav" aria-label="Hovedmeny">
+      <button class="menu-toggle" aria-label="Åpne meny" id="menuToggle" aria-expanded="false">☰</button>
+         <ul id="menu"> 
+              <li><a href="index.html" > Hjem</a></li>
+              <li><a href="ekstravakter.html" > Vaktbok</a></li>
+              <li><a href="arbeidsliste.html">Print</a></li>
+              <li><a href="sjekkliste.html">Ansvarsykepleier </a></li>
+              <li><a href="velferdsTeknologi.html" aria-current="page">Velferdsteknologi</a></li>
+              <li><a href="rutiner.html" >Rutiner</a></li>
+              <li><a href="Bursdager.html">Bursdager</a></li>
+              <li><a href="album.html">Sør-album </a></li>
+          </ul>
+       </nav>
+    </header>
+
+  <main id="main-content" class="container">
+    <section class = "card">
+      <h2>Velferdsteknologi</h2><br><br>
+
+      <div class="item" id="dignio">
+          <button class="question">
+            <h3>Dignio</h3>
+            <i class="fas fa-chevron-down icon"></i>
+          </button>
+          <div class="answer">
+            <p>Kommer senere</p>
+          </div>
+      </div>
+
+      <div class="item" id="dho">
+          <button class="question">
+            <h3>Digital hjemmeoppfølging</h3>
+            <i class="fas fa-chevron-down icon"></i>
+          </button>
+          <div class="answer">
+            <p>Kommer senere</p>
+          </div>
+        </div>
+
+      <div class="item" id="">
+        <button class="question">
+          <h3>Evondos</h3> 
+          <i class="fas fa-chevron-down icon"></i>
+        </button >
+        <div class="answer"> 
+         <p>Kommer senere</p>
+        </div>
+      </div>
+
+
+      <div class="item">
+        <button class="question">
+          <h3>Karrie</h3>
+          <i class="fas fa-chevron-down icon"></i>
+        </button>
+        <div class="answer">
+          <img src="bilder/evondos/karrie1.png" >
+          <img src="bilder/evondos/karrie2.png" >
+          <img src="bilder/evondos/karrie3.png" >
+          <p>Kommer senere</p>
+        </div>
+      </div>
+
+      <div class="item" id="medisindispenser">
+        <button class="question">
+          <h3>Pilly</h3>
+          <i class="fas fa-chevron-down icon"></i>
+        </button>
+        <div class="answer">
+          <p></p>
+        </div>
+      </div>
+      <div class="item" id="medisindispenser">
+        <button class="question" >
+          <h3>GPS</h3>
+          <i class="fas fa-chevron-down icon"></i>
+        </button>
+        <div class="answer">
+          <p></p>
+           <img src="bilder/evondos/gps2.png" >
+           <img src="bilder/evondos/gps.jpg" >
+        </div>
+      </div>
+    </section>
+ 
+</main>
+<script type="module" src="app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!---------------------------------passord-beskyttelse--------------------------------->
+     <!--<script src="auth.js"></script> --> 
+<!------------------------------------------------------------------------------------->
+     <meta charset="utf-8" />
+<!------------------Reduserer sjansen for at Google finner siden.----------------------------------->
+     <meta name="robots" content="noindex, nofollow">
+<!------------------------------------------------------------------------------------------>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Album</title>
+  <link rel="stylesheet" href="gerica.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#2f5d9f">
+  <link rel="icon" href="images/logo-192.png">
+  <link rel="apple-touch-icon" href="images/logo-192.png">
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+
+   <style>
+      #visKnapp, #loggutKnapp{
+        background:#2f5d9f;
+          color:white;
+          border:none;
+          padding:12px 20px;
+          border-radius:10px;
+          cursor:pointer;
+          font-size:1rem;
+      }
+      /* ================================
+   Firebase innlogging
+   ================================ */
+
+#loginBox{
+    max-width: 420px;
+    margin: 20px auto;
+    padding: 25px;
+    background: #f8f9fa;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    text-align: center;
+    
+}
+#logutBox{
+    margin: 20px auto;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+#loginBox h3 {
+    color: #2f5d9f;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+
+#loginBox p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+
+/* Input-felt */
+
+#loginBox input {
+    width: 90%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+
+#loginBox input:focus {
+    outline: none;
+    border-color: #2f5d9f;
+    box-shadow: 0 0 5px rgba(47,93,159,0.4);
+}
+
+
+/* Logg inn/ut knapp */
+
+#loginBtn{
+    width: 90%;
+    margin-top: 15px;
+    padding: 12px;
+    background: #2f5d9f;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+#loggutKnapp{
+    width: 100%;
+    margin-top: 15px;
+    padding: 12px;
+    background: #2f5d9f;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+
+#loginBtn:hover {
+    background: #23477c;
+}
+
+#loggutKnapp:hover {
+    background: #23477c;
+}
+
+
+/* Kontaktkort-beskyttelse */
+
+#beskyttetInnhold {
+    margin-top: 20px;
+}
+
+
+/* Mobil */
+
+@media (max-width: 600px) {
+
+    #loginBox {
+        margin: 15px;
+        padding: 20px;
+       
+    }
+    #logutBox {
+        margin: 15px;
+        padding: 20px;
+       
+    }
+
+    #loginBox h3 {
+        font-size: 1.3rem;
+    }
+
+
+    #loginBox input,
+    #loginBtn,#loggutKnapp {
+        width: 100%;
+    }
+
+}
+
+  </style>
+
+</head>
+<body>
+
+  <header class="topbar">
+     <!--logo-->
+    <div class="brand">
+        <img src="images/logo-192.png" alt="Team Sør">
+        
+    </div>
+
+    <nav class="nav" aria-label="Hovedmeny">
+      <button class="menu-toggle" aria-label="Åpne meny" id="menuToggle" aria-expanded="false">☰</button>
+      <ul id="menu"> 
+          <li><a href="index.html"> Hjem</a></li>
+          <li><a href="ekstravakter.html" > Vaktbok</a></li>
+          <li><a href="arbeidsliste.html">Merkantil</a></li>
+          <li><a href="sjekkliste.html">Ansvarsykepleier </a></li>
+          <li><a href="velferdsTeknologi.html">Velferdsteknologi</a></li>
+          <li><a href="rutiner.html" >Rutiner</a></li>
+          <li><a href="Bursdager.html">Bursdager</a></li>
+          <li><a href="album.html" aria-current="page">Sør-album </a></li>
+          <li>
+           <!-- <button id="logoutButton">
+                Logg ut
+            </button>
+          </li>-->
+        </ul>
+    </nav>
+  </header>
+  <main id="main-content" class="container">
+    <div class="card">
+        <h1>Sør-album📸</h1>
+        <h3>Her samler vi bilder fra hverdagen i Team Sør, sosiale arrangementer, 
+        markeringer og andre hyggelige øyeblikk. Albumet gir et innblikk i fellesskapet vårt og bidrar til 
+        å bevare gode minner fra tiden vi deler sammen.
+        Bildene viser engasjementet, samarbeidet og det gode arbeidsmiljøet som kjennetegner Team Sør.</h3><br>
+    </div>
+      
+    <div class="card">
+      <h3>Send bilder du tar av teamet, til Sakineh, eller legg dem i whatsapp-siden</h3>
+    </div>
+<!--------------------------------sjuler album-innholdet----------------------------------------->
+<div id="beskyttetInnhold" style="display:none;">
+
+  <div class="gallery">
+
+         <a href="bilder/-8.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/-8.jpg" alt="Bilde -8">
+          </a>
+         <a href="bilder/-7.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/-7.jpg" alt="Bilde -7">
+          </a>
+         <a href="bilder/-6.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/-6.jpg" alt="Bilde -6">
+          </a>
+          <a href="bilder/-5.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/-5.jpg" alt="Bilde -5">
+          </a>
+          <a href="bilder/-4.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/-4.jpg" alt="Bilde -4">
+          </a>
+          <a href="bilder/-3.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/-3.jpg" alt="Bilde -3">
+          </a>
+          <a href="bilder/-2.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/-2.jpg" alt="Bilde -2">
+          </a>
+          <a href="bilder/-1.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/-1.jpg" alt="Bilde -1">
+          </a>
+          <a href="bilder/1.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/1.jpg" alt="Bilde 1">
+          </a>
+          <a href="bilder/2.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/2.jpg" alt="Bilde 2">
+          </a>
+          <a href="bilder/3.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/3.jpg" alt="Bilde 3">
+          </a>
+          <a href="bilder/4.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/4.jpg" alt="Bilde 4">
+          </a>
+          <a href="bilder/5.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/5.jpg" alt="Bilde 5">
+          </a>
+          <a href="bilder/6.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/6.jpg" alt="Bilde 6">
+          </a>
+           <a href="bilder/7.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/7.jpg" alt="Bilde 7">
+          </a>
+           <a href="bilder/8.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/8.jpg" alt="Bilde 8">
+          </a>
+           <a href="bilder/9.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/9.jpg" alt="Bilde 9">
+          </a>
+           <a href="bilder/10.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/10.jpg" alt="Bilde 10">
+          </a>
+           <a href="bilder/11.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/11.jpg" alt="Bilde 11">
+          </a>
+           <a href="bilder/12.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/12.jpg" alt="Bilde 12">
+          </a>
+           <a href="bilder/13.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/13.jpg" alt="Bilde 13">
+          </a>
+           <a href="bilder/14.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/14.jpg" alt="Bilde 14">
+          </a>
+           <a href="bilder/15.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/15.jpg" alt="Bilde 15">
+          </a>
+           <a href="bilder/16.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/16.jpg" alt="Bilde 16">
+          </a>
+           <a href="bilder/17.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/17.jpg" alt="Bilde 17">
+          </a>
+           <a href="bilder/18.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/18.jpg" alt="Bilde 18">
+          </a>
+           <a href="bilder/19.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/19.jpg" alt="Bilde 19">
+          </a>
+           <a href="bilder/20.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/20.jpg" alt="Bilde 20">
+          </a>
+          
+           <a href="bilder/22.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/22.jpg" alt="Bilde 22">
+          </a>
+           <a href="bilder/23.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/23.jpg" alt="Bilde 23">
+          </a>
+           <a href="bilder/24.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/24.jpg" alt="Bilde 24">
+          </a>
+           <a href="bilder/25.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/25.jpg" alt="Bilde 25">
+          </a>
+           <a href="bilder/26.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/26.jpg" alt="Bilde 26">
+          </a>
+           <a href="bilder/27.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/27.jpg" alt="Bilde 27">
+          </a>
+          <a href="bilder/28.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/28.jpg" alt="Bilde 28">
+          </a>
+          <a href="bilder/29.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/29.jpg" alt="Bilde 29">
+          </a>
+          <a href="bilder/30.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/30.jpg" alt="Bilde 30">
+          </a>
+           <a href="bilder/31.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/31.jpg" alt="Bilde 31">
+          </a>
+           <a href="bilder/32.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/32.jpg" alt="Bilde 32">
+          </a>
+           <a href="bilder/33.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/33.jpg" alt="Bilde 33">
+          </a>
+           <a href="bilder/34.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/34.jpg" alt="Bilde 34">
+          </a>
+           <a href="bilder/35.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/35.jpg" alt="Bilde 35">
+          </a>
+           <a href="bilder/36.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/36.jpg" alt="Bilde 36">
+          </a>
+           <a href="bilder/37.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/37.jpg" alt="Bilde 37">
+          </a>
+          <a href="bilder/38.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/38.jpg" alt="Bilde 38">
+          </a>
+          <a href="bilder/39.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/39.jpg" alt="Bilde 39">
+          </a>
+          <a href="bilder/40.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/40.jpg" alt="Bilde 40">
+          </a>
+           <a href="bilder/41.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/41.jpg" alt="Bilde 41">
+          </a>
+           <a href="bilder/42.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/42.jpg" alt="Bilde 42">
+          </a>
+           <a href="bilder/43.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/43.jpg" alt="Bilde 43">
+          </a>
+           <a href="bilder/44.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/44.jpg" alt="Bilde 44">
+          </a>
+           <a href="bilder/45.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/45.jpg" alt="Bilde 45">
+          </a>
+           <a href="bilder/46.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/46.jpg" alt="Bilde 46">
+          </a>
+           <a href="bilder/47.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/47.jpg" alt="Bilde 47">
+          </a>
+          <a href="bilder/48.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/48.jpg" alt="Bilde 48">
+          </a>
+          <a href="bilder/49.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/49.jpg" alt="Bilde 49">
+          </a>
+          <a href="bilder/50.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/50.jpg" alt="Bilde 50">
+          </a>
+           <a href="bilder/51.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/51.jpg" alt="Bilde 51">
+          </a>
+           <a href="bilder/52.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/52.jpg" alt="Bilde 52">
+          </a>
+           <a href="bilder/53.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/53.jpg" alt="Bilde 53">
+          </a>
+           <a href="bilder/54.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/54.jpg" alt="Bilde 54">
+          </a>
+           <a href="bilder/55.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/55.jpg" alt="Bilde 55">
+          </a>
+           <a href="bilder/56.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/56.jpg" alt="Bilde 56">
+          </a>
+           <a href="bilder/57.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/57.jpg" alt="Bilde 57">
+          </a>
+          
+          <a href="bilder/59.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/59.jpg" alt="Bilde 59">
+          </a>
+          <a href="bilder/60.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/60.jpg" alt="Bilde 60">
+          </a>
+           <a href="bilder/61.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/61.jpg" alt="Bilde 61">
+          </a>
+           <a href="bilder/62.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/62.jpg" alt="Bilde 62">
+          </a>
+           <a href="bilder/63.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/63.jpg" alt="Bilde 63">
+          </a>
+           <a href="bilder/64.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/64.jpg" alt="Bilde 64">
+          </a>
+           <a href="bilder/65.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/65.jpg" alt="Bilde 65">
+          </a>
+           <a href="bilder/66.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/66.jpg" alt="Bilde 66">
+          </a>
+           <a href="bilder/67.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/67.jpg" alt="Bilde 67">
+          </a>
+          <a href="bilder/68.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/68.jpg" alt="Bilde 68">
+          </a>
+         
+           <a href="bilder/71.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/71.jpg" alt="Bilde 71">
+          </a>
+           <a href="bilder/72.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/72.jpg" alt="Bilde 72">
+          </a>
+           <a href="bilder/73.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/73.jpg" alt="Bilde 73">
+          </a>
+           <a href="bilder/74.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/74.jpg" alt="Bilde 74">
+          </a>
+           <a href="bilder/75.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/75.jpg" alt="Bilde 75">
+          </a>
+           <a href="bilder/76.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/76.jpeg" alt="Bilde 76">
+          </a>
+           <a href="bilder/77.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/77.jpeg" alt="Bilde 77">
+          </a>
+           <a href="bilder/78.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/78.jpeg" alt="Bilde 78">
+          </a>
+           <a href="bilder/79.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/79.jpeg" alt="Bilde 79">
+          </a>
+           <a href="bilder/80.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/80.jpeg" alt="Bilde 80">
+          </a>
+           <a href="bilder/81.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/81.jpeg" alt="Bilde 81">
+          </a>
+           <a href="bilder/82.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/82.jpeg" alt="Bilde 82">
+          </a>
+           <a href="bilder/83.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/83.jpeg" alt="Bilde 83">
+          </a>
+           <a href="bilder/84.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/84.jpeg" alt="Bilde 84">
+          </a>
+          <a href="bilder/85.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/85.jpeg" alt="Bilde 85">
+          </a>
+          <a href="bilder/86.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/86.jpeg" alt="Bilde 86">
+          </a>
+          <a href="bilder/87.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/87.jpeg" alt="Bilde 87">
+          </a>
+          <a href="bilder/88.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/88.jpeg" alt="Bilde 88">
+          </a>
+          <a href="bilder/89.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/89.jpeg" alt="Bilde 89">
+          </a>
+          <a href="bilder/90.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/90.jpeg" alt="Bilde 90">
+          </a>
+          <a href="bilder/91.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/91.jpeg" alt="Bilde 91">
+          </a>
+          
+          <a href="bilder/93.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/93.jpeg" alt="Bilde 93">
+          </a>
+          <a href="bilder/94.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/94.jpeg" alt="Bilde 94">
+          </a>
+          <a href="bilder/95.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/95.jpeg" alt="Bilde 95">
+          </a>
+          <a href="bilder/96.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/96.jpeg" alt="Bilde 96">
+          </a>
+          
+          <a href="bilder/98.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/98.jpeg" alt="Bilde 98">
+          </a>
+          <a href="bilder/99.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/99.jpeg" alt="Bilde 99">
+          </a>
+          <a href="bilder/100.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/100.jpeg" alt="Bilde 100">
+          </a>
+          <a href="bilder/101.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/101.jpeg" alt="Bilde 101">
+          </a>
+          <a href="bilder/102.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/102.jpeg" alt="Bilde 102">
+          </a>
+          <a href="bilder/103.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/103.jpeg" alt="Bilde 103">
+          </a>
+          <a href="bilder/104.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/104.jpeg" alt="Bilde 104">
+          </a>
+          <a href="bilder/105.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/105.jpeg" alt="Bilde 105">
+          </a>
+          <a href="bilder/106.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/106.jpeg" alt="Bilde 106">
+          </a>
+          <a href="bilder/107.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/107.jpeg" alt="Bilde 107">
+          </a>
+          <a href="bilder/108.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/108.jpeg" alt="Bilde 108">
+          </a>
+          <a href="bilder/109.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/109.jpeg" alt="Bilde 109">
+          </a>
+          <a href="bilder/110.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/110.jpeg" alt="Bilde 110">
+          </a>
+          <a href="bilder/111.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/111.jpeg" alt="Bilde 111">
+          </a>
+          <a href="bilder/112.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/112.jpeg" alt="Bilde 112">
+          </a>
+          <a href="bilder/113.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/113.jpeg" alt="Bilde 113">
+          </a>
+          <a href="bilder/114.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/114.jpeg" alt="Bilde 114">
+          </a>
+          <a href="bilder/115.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/115.jpeg" alt="Bilde 115">
+          </a>
+          <a href="bilder/116.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/116.jpeg" alt="Bilde 116">
+          </a>
+          <a href="bilder/117.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/117.jpeg" alt="Bilde 117">
+          </a>
+          <a href="bilder/118.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/118.jpeg" alt="Bilde 118">
+          </a>
+          <a href="bilder/119.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/119.jpeg" alt="Bilde 119">
+          </a>
+          <a href="bilder/120.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/120.jpeg" alt="Bilde 120">
+          </a>
+           <a href="bilder/121.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/121.jpeg" alt="Bilde 121">
+          </a>
+           <a href="bilder/122.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/122.jpeg" alt="Bilde 122">
+          </a>
+           <a href="bilder/123.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/123.jpeg" alt="Bilde 123">
+          </a>
+           <a href="bilder/124.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/124.jpeg" alt="Bilde 124">
+          </a>
+           <a href="bilder/125.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/125.jpeg" alt="Bilde 125">
+          </a>
+           <a href="bilder/126.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/126.jpeg" alt="Bilde 126">
+          </a>
+           <a href="bilder/127.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/127.jpeg" alt="Bilde 127">
+          </a>
+           <a href="bilder/128.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/128.jpeg" alt="Bilde 128">
+          </a>
+           <a href="bilder/129.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/129.jpeg" alt="Bilde 129">
+          </a>
+           <a href="bilder/130.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/130.jpeg" alt="Bilde 130">
+          </a>
+           <a href="bilder/131.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/131.jpeg" alt="Bilde 131">
+          </a>
+           <a href="bilder/132.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/132.jpeg" alt="Bilde 132">
+          </a>
+           <a href="bilder/133.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/133.jpeg" alt="Bilde 133">
+          </a>
+           <a href="bilder/134.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/134.jpeg" alt="Bilde 134">
+          </a>
+           <a href="bilder/135.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/135.jpeg" alt="Bilde 135">
+          </a>
+           <a href="bilder/136.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/136.jpeg" alt="Bilde 136">
+          </a>
+           <a href="bilder/137.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/137.jpeg" alt="Bilde 137">
+          </a>
+           <a href="bilder/138.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/138.jpeg" alt="Bilde 138">
+          </a>
+           <a href="bilder/139.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/139.jpeg" alt="Bilde 139">
+          </a>
+           <a href="bilder/140.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/140.jpeg" alt="Bilde 140">
+          </a>
+           <a href="bilder/141.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/141.jpeg" alt="Bilde 141">
+          </a>
+          
+           <a href="bilder/146.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/146.jpeg" alt="Bilde 146">
+          </a>
+           <a href="bilder/147.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/147.jpeg" alt="Bilde 147">
+          </a>
+           <a href="bilder/148.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/148.jpeg" alt="Bilde 148">
+          </a>
+           <a href="bilder/149.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/149.jpeg" alt="Bilde 149">
+          </a>
+           <a href="bilder/150.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/150.jpeg" alt="Bilde 150">
+          </a>
+           <a href="bilder/151.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/151.jpeg" alt="Bilde 151">
+          </a>
+           <a href="bilder/152.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/152.jpeg" alt="Bilde 152">
+          </a>
+           <a href="bilder/153.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/153.jpeg" alt="Bilde 153">
+          </a>
+           <a href="bilder/154.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/154.jpeg" alt="Bilde 154">
+          </a>
+           <a href="bilder/155.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/155.jpeg" alt="Bilde 155">
+          </a>
+           <a href="bilder/156.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/156.jpeg" alt="Bilde 156">
+          </a>
+           <a href="bilder/157.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/157.jpeg" alt="Bilde 157">
+          </a>
+           <a href="bilder/158.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/158.jpeg" alt="Bilde 158">
+          </a>
+           <a href="bilder/159.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/159.jpeg" alt="Bilde 159">
+          </a>
+            <a href="bilder/160.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/160.jpeg" alt="Bilde 160">
+          </a>
+           <a href="bilder/161.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/161.jpeg" alt="Bilde 161">
+          </a>
+           <a href="bilder/162.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/162.jpeg" alt="Bilde 162">
+          </a>
+           <a href="bilder/163.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/163.jpeg" alt="Bilde 163">
+          </a>
+           <a href="bilder/164.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/164.jpeg" alt="Bilde 164">
+          </a>
+           <a href="bilder/165.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/165.jpeg" alt="Bilde 165">
+          </a>
+           <a href="bilder/166.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/166.jpeg" alt="Bilde 166">
+          </a>
+          
+           <a href="bilder/168.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/168.jpeg" alt="Bilde 168">
+          </a>
+           <a href="bilder/169.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/169.jpeg" alt="Bilde 169">
+          </a>
+            <a href="bilder/170.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/170.jpeg" alt="Bilde 170">
+          </a>
+          
+           <a href="bilder/172.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/172.jpeg" alt="Bilde 172">
+          </a>
+           <a href="bilder/173.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/173.jpeg" alt="Bilde 173">
+          </a>
+           <a href="bilder/174.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/174.jpeg" alt="Bilde 174">
+          </a>
+           <a href="bilder/175.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/175.jpeg" alt="Bilde 175">
+          </a>
+           <a href="bilder/176.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/176.jpeg" alt="Bilde 176">
+          </a>
+           <a href="bilder/177.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/177.jpeg" alt="Bilde 177">
+          </a>
+           <a href="bilder/178.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/178.jpeg" alt="Bilde 178">
+          </a>
+           <a href="bilder/179.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/179.jpeg" alt="Bilde 179">
+          </a>
+            <a href="bilder/180.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/180.jpeg" alt="Bilde 180">
+          </a>
+           <a href="bilder/181.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/181.jpeg" alt="Bilde 181">
+          </a>
+           
+           <a href="bilder/183.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/183.jpeg" alt="Bilde 183">
+          </a>
+           <a href="bilder/184.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/184.jpeg" alt="Bilde 184">
+          </a>
+           <a href="bilder/185.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/185.jpeg" alt="Bilde 185">
+          </a>
+           <a href="bilder/186.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/186.jpeg" alt="Bilde 186">
+          </a>
+           <a href="bilder/187.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/187.jpeg" alt="Bilde 187">
+          </a>
+           <a href="bilder/188.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/188.jpeg" alt="Bilde 188">
+          </a>
+           <a href="bilder/189.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/189.jpeg" alt="Bilde 189">
+          </a>
+            <a href="bilder/180.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/180.jpeg" alt="Bilde 180">
+          </a>
+           <a href="bilder/181.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/181.jpeg" alt="Bilde 181">
+          </a>
+           
+           <a href="bilder/183.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/183.jpeg" alt="Bilde 183">
+          </a>
+           <a href="bilder/184.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/184.jpeg" alt="Bilde 184">
+          </a>
+           <a href="bilder/185.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/185.jpeg" alt="Bilde 185">
+          </a>
+           <a href="bilder/186.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/186.jpeg" alt="Bilde 186">
+          </a>
+           <a href="bilder/187.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/187.jpeg" alt="Bilde 187">
+          </a>
+           <a href="bilder/188.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/188.jpeg" alt="Bilde 188">
+          </a>
+           <a href="bilder/189.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/189.jpeg" alt="Bilde 189">
+          </a>
+            <a href="bilder/190.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/190.jpeg" alt="Bilde 190">
+          </a>
+           <a href="bilder/191.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/191.jpeg" alt="Bilde 191">
+          </a>
+          <a href="bilder/192.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/192.jpeg" alt="Bilde 192">
+          </a>
+           
+           <a href="bilder/193.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/193.jpeg" alt="Bilde 193">
+          </a>
+           <a href="bilder/194.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/194.jpeg" alt="Bilde 194">
+          </a>
+           <a href="bilder/195.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/195.jpeg" alt="Bilde 195">
+          </a>
+           <a href="bilder/196.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/196.jpeg" alt="Bilde 196">
+          </a>
+           <a href="bilder/197.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/197.jpeg" alt="Bilde 197">
+          </a>
+           <a href="bilder/198.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/198.jpeg" alt="Bilde 198">
+          </a>
+           <a href="bilder/199.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/199.jpeg" alt="Bilde 199">
+          </a>
+            <a href="bilder/200.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/200.jpeg" alt="Bilde 200">
+          </a>
+           <a href="bilder/201.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/201.jpeg" alt="Bilde 201">
+          </a>
+          <a href="bilder/202.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/202.jpeg" alt="Bilde 202">
+          </a>
+           
+           <a href="bilder/203.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/203.jpeg" alt="Bilde 203">
+          </a>
+           <a href="bilder/204.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/204.jpeg" alt="Bilde 204">
+          </a>
+           <a href="bilder/205.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/205.jpeg" alt="Bilde 205">
+          </a>
+           <a href="bilder/206.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/206.jpeg" alt="Bilde 206">
+          </a>
+           <a href="bilder/207.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/207.jpeg" alt="Bilde 207">
+          </a>
+           <a href="bilder/208.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/208.jpeg" alt="Bilde 208">
+          </a>
+           <a href="bilder/209.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/209.jpeg" alt="Bilde 209">
+          </a>
+            <a href="bilder/210.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/210.jpeg" alt="Bilde 210">
+          </a>
+            <a href="bilder/211.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/211.jpeg" alt="Bilde 211">
+          </a>
+           <a href="bilder/212.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/212.jpeg" alt="Bilde 212">
+          </a>
+          <a href="bilder/213.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/213.jpeg" alt="Bilde 213">
+          </a>
+           
+           <a href="bilder/214.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/214.jpeg" alt="Bilde 214">
+          </a>
+           <a href="bilder/215.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/215.jpeg" alt="Bilde 215">
+          </a>
+           <a href="bilder/216.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/216.jpeg" alt="Bilde 216">
+          </a>
+           <a href="bilder/217.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/217.jpeg" alt="Bilde 217">
+          </a>
+           <a href="bilder/218.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/218.jpeg" alt="Bilde 218">
+          </a>
+           <a href="bilder/219.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/219.jpeg" alt="Bilde 219">
+          </a>
+           <a href="bilder/220.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/220.jpeg" alt="Bilde 220">
+          </a>
+            <a href="bilder/221.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/221.jpeg" alt="Bilde 221">
+          </a>
+            <a href="bilder/222.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/222.jpeg" alt="Bilde 222">
+          </a>
+           <a href="bilder/223.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/223.jpeg" alt="Bilde 223">
+          </a>
+          <a href="bilder/224.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/224.jpeg" alt="Bilde 224">
+          </a>
+           
+           <a href="bilder/225.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/225.jpeg" alt="Bilde 225">
+          </a>
+           <a href="bilder/226.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/226.jpeg" alt="Bilde 226">
+          </a>
+           <a href="bilder/227.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/227.jpeg" alt="Bilde 227">
+          </a>
+           <a href="bilder/228.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/228.jpeg" alt="Bilde 228">
+          </a>
+           <a href="bilder/229.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/229.jpeg" alt="Bilde 229">
+          </a>
+          
+          
+            <a href="bilder/231.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/231.jpeg" alt="Bilde 231">
+          </a>
+            <a href="bilder/232.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/232.jpeg" alt="Bilde 232">
+          </a>
+           <a href="bilder/233.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/233.jpeg" alt="Bilde 233">
+          </a>
+          <a href="bilder/234.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/234.jpeg" alt="Bilde 234">
+          </a>
+           
+           <a href="bilder/235.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/235.jpeg" alt="Bilde 235">
+          </a>
+           <a href="bilder/236.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/236.jpeg" alt="Bilde 236">
+          </a>
+           <a href="bilder/237.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/237.jpeg" alt="Bilde 237">
+          </a>
+           <a href="bilder/238.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/238.jpeg" alt="Bilde 238">
+          </a>
+           <a href="bilder/239.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/239.jpeg" alt="Bilde 239">
+          </a>
+           <a href="bilder/240.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/240.jpeg" alt="Bilde 240">
+          </a>
+
+            <a href="bilder/241.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/241.jpeg" alt="Bilde 241">
+          </a>
+            <a href="bilder/242.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/242.jpeg" alt="Bilde 242">
+          </a>
+           <a href="bilder/243.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/243.jpeg" alt="Bilde 243">
+          </a>
+          <a href="bilder/244.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/244.jpeg" alt="Bilde 244">
+          </a>
+           
+           <a href="bilder/245.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/245.jpeg" alt="Bilde 245">
+          </a>
+           <a href="bilder/246.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/246.jpeg" alt="Bilde 246">
+          </a>
+           <a href="bilder/247.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/247.jpeg" alt="Bilde 247">
+          </a>
+           <a href="bilder/248.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/248.jpeg" alt="Bilde 248">
+          </a>
+           <a href="bilder/249.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/249.jpeg" alt="Bilde 249">
+          </a>
+           <a href="bilder/250.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/250.jpeg" alt="Bilde 250">
+          </a>
+          
+            <a href="bilder/251.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/251.jpeg" alt="Bilde 251">
+          </a>
+            <a href="bilder/252.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/252.jpeg" alt="Bilde 252">
+          </a>
+           
+          <a href="bilder/254.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/254.jpeg" alt="Bilde 254">
+          </a>
+           
+           <a href="bilder/255.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/255.jpeg" alt="Bilde 255">
+          </a>
+           <a href="bilder/256.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/256.jpeg" alt="Bilde 256">
+          </a>
+           <a href="bilder/257.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/257.jpeg" alt="Bilde 257">
+          </a>
+           <a href="bilder/258.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/258.jpeg" alt="Bilde 258">
+          </a>
+           <a href="bilder/259.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/259.jpeg" alt="Bilde 259">
+          </a>
+           <a href="bilder/260.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/260.jpeg" alt="Bilde 260">
+          </a>
+         
+            <a href="bilder/261.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/261.jpeg" alt="Bilde 261">
+          </a>
+            <a href="bilder/262.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/262.jpeg" alt="Bilde 262">
+          </a>
+           <a href="bilder/263.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/263.jpeg" alt="Bilde 263">
+          </a>
+          <a href="bilder/264.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/264.jpeg" alt="Bilde 264">
+          </a>
+           
+           <a href="bilder/265.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/265.jpeg" alt="Bilde 265">
+          </a>
+           <a href="bilder/266.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/266.jpeg" alt="Bilde 266">
+          </a>
+           <a href="bilder/267.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/267.jpeg" alt="Bilde 267">
+          </a>
+           <a href="bilder/268.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/268.jpeg" alt="Bilde 268">
+          </a>
+           <a href="bilder/269.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/269.jpeg" alt="Bilde 269">
+          </a>
+           <a href="bilder/270.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/270.jpeg" alt="Bilde 270">
+          </a>
+           <a href="bilder/271.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/271.jpeg" alt="Bilde 271">
+          </a>
+            <a href="bilder/272.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/272.jpeg" alt="Bilde 272">
+          </a>
+           <a href="bilder/273.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/273.jpeg" alt="Bilde 273">
+          </a>
+          <a href="bilder/274.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/274.jpeg" alt="Bilde 274">
+          </a>
+           
+           <a href="bilder/275.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/275.jpeg" alt="Bilde 275">
+          </a>
+           <a href="bilder/276.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/276.jpeg" alt="Bilde 276">
+          </a>
+           <a href="bilder/277.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/277.jpeg" alt="Bilde 277">
+          </a>
+           <a href="bilder/278.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/278.jpeg" alt="Bilde 278">
+          </a>
+           <a href="bilder/279.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/279.jpeg" alt="Bilde 279">
+          </a>
+           <a href="bilder/280.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/280.jpeg" alt="Bilde 280">
+          </a>
+          <a href="bilder/281.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/281.jpeg" alt="Bilde 281">
+          </a>
+            <a href="bilder/282.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/282.jpeg" alt="Bilde 282">
+          </a>
+           <a href="bilder/283.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/283.jpeg" alt="Bilde 283">
+          </a>
+          <a href="bilder/284.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/284.jpeg" alt="Bilde 284">
+          </a>
+           
+           <a href="bilder/285.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/285.jpeg" alt="Bilde 285">
+          </a>
+           <a href="bilder/286.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/286.jpeg" alt="Bilde 286">
+          </a>
+           <a href="bilder/287.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/287.jpeg" alt="Bilde 287">
+          </a>
+           <a href="bilder/288.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/288.jpeg" alt="Bilde 288">
+          </a>
+           <a href="bilder/289.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/289.jpeg" alt="Bilde 289">
+          </a>
+           <a href="bilder/290.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/290.jpeg" alt="Bilde 290">
+          </a>
+           <a href="bilder/291.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/291.jpeg" alt="Bilde 291">
+          </a>
+            <a href="bilder/292.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/292.jpeg" alt="Bilde 292">
+          </a>
+           <a href="bilder/293.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/293.jpeg" alt="Bilde 293">
+          </a>
+          <a href="bilder/294.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/294.jpeg" alt="Bilde 294">
+          </a>
+           
+          
+        
+               
+    </div>
+<!-----------------------------------album-beskyttelse----------------------------------------->
+  </div>
+<!--------------------------------------------------------------------------------------------->
+<!----------------------------logginn og loggut------------------------------------------------------------------------------->
+    
+      <form id="loginBox">
+        <h3>🔒Logg inn med brukernavn <strong>teamsør@teamsør.no</strong>, for å se bildene. passord er samme som før</h3>
+
+          <input id="email" type="email" placeholder="E-post">
+          <input id="password" type="password" placeholder="Passord">
+
+          <button id="loginBtn">
+              Logg inn
+          </button>
+          <h5>
+            Bildene er skjult av hensyn til personvern.
+            Logg inn med brukernavn <strong>teamsør@teamsør.no</strong> for tilgang. passord er samme som før 
+          </h5>
+        </form>
+    
+
+<!--------------logg ut-knapp: Fjerner ansatteTilgang. Neste gang må de logge inn på nyttig*/-->
+      <div id="logutBox">    
+        <button id="loggutKnapp" style="display:none;">
+        🔒 Logg ut
+        </button>
+        <h5>Når du logger ut, må du skrive brukernavn:<strong>(teamsør@teamsør.no)</strong> og passord igjen for å logge inn. For å få passord se whatsapp-siden for team Sør eller send melding til Sakineh(93674937)</h5>
+      </div>
+    
+
+</main>
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+
+<script>
+const lightbox = GLightbox({
+    selector: '.glightbox',
+    loop: true,
+    touchNavigation: true,
+    keyboardNavigation: true,
+    closeButton: true
+});
+
+ // Albumbeskyttelse:
+const visKnapp = document.getElementById("visKnapp");
+const beskyttetInnhold = document.getElementById("beskyttetInnhold");
+
+
+if (visKnapp && beskyttetInnhold) {
+    // Sjekk om tilgang allerede finnes
+    const tilgang = localStorage.getItem("bildeTilgang");
+
+    if (tilgang === "ja") {
+
+        beskyttetInnhold.style.display = "block";
+        visKnapp.style.display = "none";
+    }
+    
+    visKnapp.addEventListener("click", () => {
+        const passord = prompt("Skriv inn passord for bursdager");
+
+        if (passord === "teamsør2026") {
+            beskyttetInnhold.style.display = "block";
+            visKnapp.style.display = "none";
+
+            localStorage.setItem(
+                "bursdagTilgang",
+                "ja"
+            );
+
+        } else {
+            alert("Feil passord");
+        }
+
+    });
+
+}
+
+//loggut-knapp: fjerner ansattes tilgang til bursdagskalender, neste gang må de skrive passordet igjen for 
+//å få tilgang
+const loggutKnapp = document.getElementById("loggutKnapp");
+
+if (loggutKnapp) {
+
+    loggutKnapp.addEventListener("click", () => {
+
+        localStorage.removeItem("bildeTilgang");
+
+        location.reload();
+
+    });
+
+}
+</script>
+
+<!--<script src="beskyttelse.js"></script>Deaktivert innlogging/beskyttelse--> 
+ <script type="module" src="app.js"></script>
+
+  <script type="module" src="bursdag.js"></script>
+
+  <script type="module" src="auth.js"></script>
+  <script type="module" src="login.js"></script>
+  <script type="module" src="logout.js"></script>
+</body>
+</html>

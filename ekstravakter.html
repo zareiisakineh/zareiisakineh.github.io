@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow">
+  <title>Vaktbok</title>
+  <link rel="stylesheet" href="gerica.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#2f5d9f">
+   <link rel="icon" href="images/logo-192.png">
+   <link rel="apple-touch-icon" href="images/logo-192.png">
+   <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+    <style>
+        .vaktKort{
+            background:white;
+            border-radius:12px;
+            padding:15px;
+            margin-bottom:10px;
+            box-shadow:0 2px 8px rgba(0,0,0,.1);
+        }
+
+        #vaktForm{
+            display:flex;
+            flex-direction:column;
+            gap:10px;
+        }
+
+        #vaktForm input,
+        #vaktForm textarea,
+        #vaktForm select,
+        #vaktForm option{
+            padding:15px;
+            border-radius:8px;
+            border:1px solid hsl(102, 12%, 57%);
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        #vaktForm button{
+            background:#2f5d9f;
+            color:white;
+            border:none;
+            padding:17px;
+            border-radius:10px;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+   
+    </style>
+
+</head>
+<body>
+    <header class="topbar">
+     <!--logo-->
+        <div class="brand">
+        <img src="images/logo-192.png" alt="Team Sør">
+        </div>
+        <nav class="nav" aria-label="Hovedmeny">
+         <button class="menu-toggle" aria-label="Åpne meny" id="menuToggle" aria-expanded="false">☰</button>
+            <ul id="menu"> 
+              <li><a href="index.html" > Hjem</a></li>
+              <li><a href="ekstravakter.html" aria-current="page"> Vaktbok</a></li>
+              <li><a href="arbeidsliste.html">Merkantil</a></li>
+              <li><a href="sjekkliste.html">Ansvarsykepleier </a></li>
+              <li><a href="velferdsTeknologi.html">Velferdsteknologi</a></li>
+              <li><a href="rutiner.html" >Rutiner</a></li>
+              <li><a href="Bursdager.html">Bursdager</a></li>
+              <li><a href="album.html">Sør-album </a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="main-content" class="container">
+        <section class="card">
+
+            <h1>📅 Vaktbok</h1>
+
+            <form id="vaktForm">
+
+                <input type="text" id="navn" placeholder="Navn" required>
+
+                <input type="date" id="dato" required>
+                    <label for="vaktType">Ønsker å jobbe:</label>
+                        <select id="vaktType" required>
+                            <option value="">Velg vakt</option>
+                            <option value="Dag 🌞">
+                                Dag
+                            </option>
+                            <option value="Kveld 🌆">
+                                Kveld
+                            </option>
+                            <option value="Natt 🌙">
+                                Natt
+                            </option>
+                        </select>
+
+                <input type="tel" id="telefon" placeholder="Telefon">
+
+                <textarea id="kommentar" placeholder="Kommentar"> </textarea>
+
+                <button type="submit"> Registrer tilgjengelighet </button>
+
+            </form>
+
+        </section>
+
+        <section class="card">
+
+            <h2>Tilgjengelige ekstravakter</h2>
+
+            <div id="vaktListe"></div>
+
+        </section>
+    </main>
+<script>
+
+const SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbwhy06__anXxP-60uKHvxh_5fiA1D7ZhxMuw5si4Ppgn0aMq5a9LiKFcKHuXGC0ByGS/exec";
+
+
+document
+.getElementById("vaktForm")
+.addEventListener("submit", sendData);
+
+
+
+async function sendData(e){
+
+    e.preventDefault();
+
+
+    const data = {
+
+    navn: document.getElementById("navn").value,
+
+    dato: document.getElementById("dato").value,
+
+    vaktType: document.getElementById("vaktType").value,
+
+    telefon: document.getElementById("telefon").value,
+
+    kommentar: document.getElementById("kommentar").value
+
+};
+
+    try {
+
+        await fetch(SCRIPT_URL, {
+
+            method: "POST",
+
+            mode: "no-cors",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify(data)
+
+        });
+
+
+        alert("Registrert!");
+
+        document
+        .getElementById("vaktForm")
+        .reset();
+
+
+    } catch(error){
+
+        console.error(
+            "Feil ved registrering:",
+            error
+        );
+
+        alert("Kunne ikke registrere vakten");
+
+    }
+
+}
+
+
+
+// Hent data fra Google Sheets
+
+async function loadVakter(){
+
+    try {
+
+        const response =
+            await fetch(SCRIPT_URL);
+
+
+        const data =
+            await response.json();
+
+
+        const liste =
+            document.getElementById("vaktListe");
+
+
+        liste.innerHTML = "";
+
+
+       data.slice(1).forEach(rad => {
+
+        liste.innerHTML += `
+
+            <div class="vaktKort">
+
+            <h3>👤 ${rad[1]}</h3>
+
+            📅 Dato:
+            ${new Date(rad[2]).toLocaleDateString("no-NO")}
+
+            <br>
+
+            🕒 Vakt:
+            ${rad[3]}
+
+            <br>
+
+            📞 Telefon:
+            <a href="tel:${rad[4]}">
+            ${rad[4]}
+            </a>
+
+            <br>
+
+            💬 ${rad[5] || ""}
+
+            </div>
+
+            `;
+                    });
+
+
+                } catch(error){
+
+        console.error(
+            "Feil ved henting:",
+            error
+        );
+
+    }
+
+}
+
+
+loadVakter();
+
+
+</script>
+
+<script type="module" src="app.js"></script>
+
+</body>
+</html>
+

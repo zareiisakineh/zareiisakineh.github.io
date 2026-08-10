@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <!--for beskyttelse-------------------------------------------------->
+          <!--<script src="auth.js"></script>       Deaktivert--> 
+      <!-------------------------------------------------------------------->
+        <meta charset="utf-8" />
+
+      <!------------------Reduserer sjansen for at Google finner siden.----------------------------------->
+        <meta name="robots" content="noindex, nofollow">
+      <!------------------------------------------------------------------------------------------>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Team Sør</title>
+        <link rel="stylesheet" href="gerica.css" />
+        <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        
+        <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+        <link rel="manifest" href="manifest.json">
+        <meta name="theme-color" content="#2f5d9f">
+        <link rel="icon" href="images/logo-192.png">
+        <link rel="apple-touch-icon" href="images/logo-192.png">
+
+          <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+          <script>
+            window.OneSignalDeferred = window.OneSignalDeferred || [];
+            OneSignalDeferred.push(async function(OneSignal) {
+              await OneSignal.init({
+                appId: "fa5acf29-9031-4c65-9afc-5ca54f073d93",
+                safari_web_id: "web.onesignal.auto.27be598e-7a22-4ed6-a01a-10378439b214",
+                notifyButton: {
+                  enable: true,
+                },
+             });
+           });
+          </script>
+  <style>
+   
+    .card li{
+      list-style: none;
+      font-size: 1.5rem;
+     
+    }
+    .bilde img{
+      max-inline-size: 100%;
+    border-radius: 10px ;
+    }
+    .bilde{
+      text-align: center;
+    }
+    @media screen {
+      .card li{
+        font-size: 1.3rem;
+      }
+    }
+
+   /* ================================
+   Firebase innlogging
+   ================================ */
+
+#loginBox{
+    max-width: 420px;
+    margin: 20px auto;
+    padding: 25px;
+    background: #f8f9fa;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    text-align: center;
+    
+}
+#logutBox{
+    margin: 20px auto;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+#loginBox h3 {
+    color: #2f5d9f;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+
+#loginBox p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+
+/* Input-felt */
+
+#loginBox input {
+    width: 90%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+
+#loginBox input:focus {
+    outline: none;
+    border-color: #2f5d9f;
+    box-shadow: 0 0 5px rgba(47,93,159,0.4);
+}
+
+
+/* Logg inn/ut knapp */
+
+#loginBtn{
+    width: 90%;
+    margin-top: 15px;
+    padding: 12px;
+    background: #2f5d9f;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+#loggutKnapp{
+    width: 100%;
+    margin-top: 15px;
+    padding: 12px;
+    background: #2f5d9f;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+
+#loginBtn:hover {
+    background: #23477c;
+}
+
+#loggutKnapp:hover {
+    background: #23477c;
+}
+
+
+/* Kontaktkort-beskyttelse */
+
+#beskyttetInnhold {
+    margin-top: 20px;
+}
+
+
+/* Mobil */
+
+@media (max-width: 600px) {
+
+    #loginBox {
+        margin: 15px;
+        padding: 20px;
+       
+    }
+    #logutBox {
+        margin: 15px;
+        padding: 20px;
+       
+    }
+
+    #loginBox h3 {
+        font-size: 1.3rem;
+    }
+
+
+    #loginBox input,
+    #loginBtn,#loggutKnapp {
+        width: 100%;
+    }
+
+}
+
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+   <!--logo-->
+    <div class="brand">
+        <img src="images/logo-192.png" alt="Team Sør">
+       
+    </div>
+<!----------------------------------------------------------------------------------------
+Search-felt
+-------------------------------------------------------------------------------------->
+ <div class="search-box">
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="🔍 Søk på hele Team Sør">
+        <div id="searchResults"></div>
+</div>
+<!-------------------------------------------------------------------------------------->
+    <nav class="nav" aria-label="Hovedmeny">
+      <button class="menu-toggle" aria-label="Åpne meny" id="menuToggle" aria-expanded="false">☰</button>
+       <ul id="menu"> 
+          <li><a href="index.html" aria-current="page"> Hjem</a></li>
+          <li><a href="ekstravakter.html" > Vaktbok</a></li>
+          <li><a href="arbeidsliste.html">Merkantil</a></li>
+          <li><a href="sjekkliste.html">Ansvarsykepleier </a></li>
+          <li><a href="velferdsTeknologi.html">Velferdsteknologi</a></li>
+          <li><a href="rutiner.html" >Rutiner</a></li>
+          <li><a href="Bursdager.html">Bursdager</a></li>
+          <li><a href="album.html">Sør-album </a></li>
+          <li>
+           <!-- <button id="logoutButton">
+                Logg ut
+            </button>
+          </li>-->
+      </ul>
+    </nav>
+  </header>
+  
+<main id="main-content" class="container">
+  <!---------------------------------Bursdagsmelding---------------------------------------->   
+  <div id="bursdagMelding"></div>
+      <div class="button-container">
+        <button id="sendWhatsapp">
+            Del bursdagshilsen
+        </button>
+      </div>
+ <!---------------------------------------------------------------------------------------
+    ------------------------------------------------------------------------------------->    
+<section class="card">
+    <h1>Team Sør</h1>
+    <h2>
+        Velkommen til Team Sørs interne side.
+        Her finner du nyttig informasjon, kalender,
+        bursdager og viktige lenker.
+    </h2>
+   <button id="installApp"> 📲 Hvordan installere Team Sør som app</button>
+
+  <p class="installInfo">
+    Installer siden på mobilen og åpne den som en app – helt uten å bruke nettleseren.
+    </p><br>
+</section>
+
+<section class="hero card">
+     <div class="gallery">
+      <a href="bilder/gruppeBilde.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/gruppeBilde.jpg" alt="Bilde gruppeBilde">
+          </a>
+          <a href="bilder/gruppeBilde4.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/gruppeBilde4.jpg" alt="Bilde gruppeBilde4">
+          </a>
+          <a href="bilder/gruppeBilde2.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/gruppeBilde2.jpg" alt="Bilde gruppeBilde2">
+          </a>
+          <a href="bilder/gruppeBilde3.jpg" class="glightbox" data-gallery="album">
+            <img src="bilder/gruppeBilde3.jpg" alt="Bilde gruppeBilde3">
+          </a>
+           <a href="bilder/267.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/267.jpeg" alt="Bilde 267">
+          </a>
+          <!--<a href="bilder/286.jpeg" class="glightbox" data-gallery="album">
+            <img src="bilder/286.jpeg" alt="Bilde 286">
+          </a>--> 
+      </div> 
+      </section>
+
+    <section class="hero card"> 
+         <p> Denne nettsiden er laget som et praktisk oppslagsverk for ansatte og studenter. Her finner du rutiner, prosedyrer, nyttige tips og informasjon som kan gjøre arbeidshverdagen litt enklere.
+
+          Hos Team Sør er vi opptatt av å ta vare på hverandre og skape trygghet – både for brukerne våre og for kollegaene våre. 
+
+          Enten du er ny hos oss eller har jobbet her i mange år, håper vi at denne siden blir et nyttig verktøy i hverdagen. Vi oppfordrer alle til å dele erfaringer, stille spørsmål og bidra til at vi sammen utvikler siden videre.
+
+          Takk for innsatsen du gjør – hver eneste dag.<br><br>
+
+          <strong>**Velkommen til Team Sør!**</strong></p>
+    </section>     
+
+    <section class="card">
+        <h2>Nyttige telefonummere</h2>
+        <ul>
+          <li>➡️ Lgevakt: <a href="tel:116117" >📞</a></li>
+          <li>➡️ Legevakt for helsepersonell:<a href="tel:23487210" >📞</a></li>
+          <li>➡️ Sykehusapotek<a href="tel:" >📞</a></li>
+          <li>➡️ Boligbygg<a href="tel:" >📞</a></li>     
+          <li>➡️ Norengros<a href="tel:02330" >📞</a></li>
+          <li>➡️ Apotek1 Skåresletta<a href="tel:" >📞</a></li>
+          <li>➡️ Boots Tøyen<a href="tel:" >📞</a></li>
+          <li>➡️ Lovisenberg sentralbord<a href="tel:" >📞</a></li>
+          <li>➡️ Aker sykehus sentralbord<a href="tel:" >📞</a></li>
+          <li>➡️ Ullevåll sentralbord<a href="tel:" >📞</a></li>
+          <li>➡️ Låsesmed Oslo kommune: <br>
+            👉--Helmer lås og dørtelefon AS<a href="tel:23058010" >📞</a><br>
+            --Oslo Låseservice<a href="tel:90542222" >📞</a><br>
+            --R. Bergersen Sikkerhet ogDesign AS<a href="tel:22040750" >📞</a><br>
+          <h4>Hvis låsesmed ikke kan komme innen rimelig tid(Kontakt BRE)</h4></li>
+          <li>➡️ <a href="tel:" >📞</a></li>
+          <li>➡️ <a href="tel:" >📞</a></li>
+        </ul>
+      </section>
+
+
+
+    <section class="card">
+      <div class="item">
+        <button class="question" onclick="toggleAccordion(this)">  
+            <h2> Hvem jobber i team Sør?</h2>
+            <i class="fas fa-chevron-down icon"></i>
+        </button >
+            <div class="answer"> 
+            </div>
+          </div>
+     
+    </section>
+    <section class="card">   
+      <ul>
+        <li>👉 Merkantil: Silje  <a href="tel:99285016" >📞</a></li><br>
+        <li>👉 Teamleder Sør: Susanna  <a href="tel:40762855" >📞</a></li><br>
+        <li>👉 Fagsykepleier: Fadumo <a href="tel:99285051" >📞</a></li><br>
+        <li>👉 Ansavar.sykepleier Sør:<a href="tel:99285051">📞</a></li><br>
+        <li>👉 Fysioterapeut: ? <a href="tel:99285016"> <i class="fas fa-phone"></i></a></li><br>
+        <li>👉 Ergoterapeut: ? <a href="tel:99285016"> <i class="fas fa-phone"></i></a></li><br>
+        <li>👉 Ernæringsfysio(KEF): Kristiane<a href="tel:45733162"> <i class="fas fa-phone"></i></a></li><br>
+        <li>👉 AKS: Eder <a href="tel:47482732"> <i class="fas fa-phone"></i></a></li><br>
+        <li>👉 Vurderingsteam(vakt-tlf):<a href="tel:48169883" > <i class="fas fa-phone"></i></a></li><br>
+        <li>👉 Kreftkoordinator: Liv Inger <a href="tel:41676217" > <i class="fas fa-phone"></i></a></li><br>
+      </ul>
+      <br>
+      </section>
+
+       <section class="card">
+        <div class="item">
+          <button class="question" onclick="toggleAccordion(this)">
+          <h2>Info om Nord, Øst, Vest</h2>
+           <i class="fas fa-chevron-down icon"></i>
+          </button>
+            <div class="answer">
+              <li>👉 Ansavar.sykepleier Nord:<a href="tel:95986565" > <i class="fas fa-phone"></i></a></li><br>
+              <li>👉 Nord Leder(Anne):<a href="tel:99722529" > <i class="fas fa-phone"></i></a></li><br>
+              <li>👉 Nord Merkantil(Lisbeth):<a href="tel:41618534" > <i class="fas fa-phone"></i></a></li><br>
+              <li>👉 Ansavar.sykepleier Øst:<a href="tel:47667948" > <i class="fas fa-phone"></i></a></li><br>
+              <li>👉 Leder(Anita) Øst:<a href="tel:45872791" > <i class="fas fa-phone"></i></a></li><br>
+              <li>👉 Merkantil(Rodolfo) Øst:<a href="tel:48169785" > <i class="fas fa-phone"></i></a></li><br>
+              <li>👉 Ansavar.sykepleier Vest:<a href="tel:46840182" > <i class="fas fa-phone"></i></a></li><br>
+              <li>👉 Vest Leder(Natalia):<a href="tel:97599187" > <i class="fas fa-phone"></i></a></li><br>
+              <li>👉 Vest Merkantil(Laila):<a href="tel:97463786" > <i class="fas fa-phone"></i></a></li><br>
+            </div>
+          </div>
+        </div>
+      </section>
+     
+       <!--
+        Firebase Authentication: Brukeren logger inn med egen konto. Kun innloggede brukere ser kontaktkortene.
+        -->
+  <!----------------------------------Alle team----------------------------------------------------------->
+
+ 
+<!----------------------------div som skjuler alle ansattekort--------------------------------------->
+      <div id="beskyttetInnhold" style="display:none;">
+<!--------------------------------------------------------------------------------------------->
+<!-------------------------------------------åpne accordion, Ledere----------------------------------->
+        <div class="item">
+          <button class="question">
+              <h2><i class="fa-solid fa-user-tie"></i>Ledere:</h2> 
+              <i class="fas fa-chevron-down icon"></i> 
+          </button>
+          <div class="answer">
+   <!-----------------------------------------Kontaktkort, Ernæringsfysiolog--------------------------------------------->
+              <section class="card">
+                <div id="leder"></div>
+              </section>
+   <!-------------------------------------------------------------------------------------------------->
+          </div>
+        </div>
+    <!-------------------------------------------------lukk accordion, Ledere----------------------->
+
+<!-------------------------------------------åpne accordion, Merkantiler----------------------------------->
+        <div class="item">
+          <button class="question">
+              <h2><i class="fa-solid fa-folder-open"></i> Merkantiler:</h2> 
+              <i class="fas fa-chevron-down icon"></i> 
+          </button>
+          <div class="answer">
+   <!-----------------------------------------Kontaktkort, Ernæringsfysiolog--------------------------------------------->
+              <section class="card">
+                <div id="merkantil"></div>
+              </section>
+   <!-------------------------------------------------------------------------------------------------->
+          </div>
+        </div>
+    <!-------------------------------------------------lukk accordion, Merkantiler----------------------->
+<!-------------------------------------------åpne accordion, Vurderingsteam----------------------------------->
+        <div class="item">
+          <button class="question">
+              <h2><i class="fa-solid fa-magnifying-glass"></i>Vurderingsteam:</h2> 
+              <i class="fas fa-chevron-down icon"></i> 
+          </button>
+          <div class="answer">
+   <!-----------------------------------------Kontaktkort, Vurderingsteam--------------------------------------------->
+              <section class="card">
+                <div id="vurderingsteam"></div>
+              </section>
+   <!-------------------------------------------------------------------------------------------------->
+          </div>
+        </div>
+    <!-------------------------------------------------lukk accordion, Vurderingsteam----------------------->
+<!-------------------------------------------åpne accordion, Nattevakter----------------------------------->
+        <div class="item">
+          <button class="question">
+              <h2><i class="fa-solid fa-moon"></i> Nattevakter:</h2> 
+              <i class="fas fa-chevron-down icon"></i> 
+          </button>
+          <div class="answer">
+   <!-----------------------------------------Kontaktkort, Nattevakter--------------------------------------------->
+              <section class="card">
+                <div id="nattevakt"></div>
+              </section>
+    <!-------------------------------------------------------------------------------------------------------------->
+          </div>
+        </div>
+<!-------------------------------------------------lukk accordion, Nattevakter----------------------------->
+<!-------------------------------------------åpne accordion, Resposesenteret----------------------------------->
+        <div class="item">
+          <button class="question">
+              <h2><i class="fa-solid fa-headset"></i> Responsesenteret:</h2> 
+              <i class="fas fa-chevron-down icon"></i> 
+          </button>
+          <div class="answer">
+   <!-----------------------------------------Kontaktkort, Resposesenteret--------------------------------------------->
+              <section class="card">
+                <div id="responssenter"></div>
+              </section>
+   <!-------------------------------------------------------------------------------------------------->
+          </div>
+        </div>
+    <!-------------------------------------------------lukk accordion, Resposesenteret----------------------->
+<!-------------------------------------------åpne accordion, Ernæringsfysiolog----------------------------------->
+        <div class="item">
+          <button class="question">
+              <h2><i class="fa-solid fa-apple-whole"></i> Ernæringsfysiolog:</h2> 
+              <i class="fas fa-chevron-down icon"></i> 
+          </button>
+          <div class="answer">
+   <!-----------------------------------------Kontaktkort, Ernæringsfysiolog--------------------------------------------->
+              <section class="card">
+                <div id="ernæringFysio"></div>
+              </section>
+   <!-------------------------------------------------------------------------------------------------->
+          </div>
+        </div>
+    <!-------------------------------------------------lukk accordion, Ernæringsfysiolog--------------------------------->     
+<!-------------------------------------------åpne accordion, AKS----------------------------------->
+        <div class="item">
+          <button class="question" >
+              <h2>🩺 Avansert klininisk sykepleiere:</h2> 
+              <i class="fas fa-chevron-down icon"></i> 
+          </button>
+          <div class="answer">
+   <!-----------------------------------------Kontaktkort, AKS--------------------------------------------->
+              <section class="card">
+                <div id="AKS"></div>
+              </section>
+   <!-------------------------------------------------------------------------------------------------->
+          </div>
+        </div>
+    <!-------------------------------------------------lukk accordion, AKS--------------------------------->     
+<!-------------------------------------------åpne accordion, Ergoterapeuter----------------------------------->
+        <div class="item">
+          <button class="question">
+              <h2><i class="fa-solid fa-hand-holding-medical"></i>Ergoterapeuter:</h2> 
+              <i class="fas fa-chevron-down icon"></i> 
+          </button>
+          <div class="answer">
+   <!-----------------------------------------Kontaktkort, Ergoterapeuter--------------------------------------------->
+              <section class="card">
+                <div id="ergo"></div>
+              </section>
+   <!-------------------------------------------------------------------------------------------------->
+          </div>
+        </div>
+    <!-------------------------------------------------lukk accordion, Ergoterapeuter--------------------------------->     
+<!-------------------------------------------Åpene accordion, sykepleiere----------------------------------->
+        <div class="item">
+          <button class="question">
+              <h2><i class="fa-solid fa-person-running"></i> Fysioterapeuter:</h2> 
+              <i class="fas fa-chevron-down icon"></i> 
+          </button>
+          <div class="answer">
+   <!-----------------------------------------Kontaktkort, Fysioterapeuter--------------------------------------------->
+              <section class="card">
+                <div id="fysio"></div>
+              </section>
+   <!-------------------------------------------------------------------------------------------------->
+          </div>
+        </div>
+    <!-------------------------------------------------lukk accordion---------------------------------> 
+<!--------------------------------------Accordion, fagsykepleiere----------------------------------->
+        <div class="item">
+          <button class="question">
+              <h2>🩺 Fagsykepleiere:</h2> 
+              <i class="fas fa-chevron-down icon"></i> 
+          </button>
+          <div class="answer">
+   <!-----------------------------------------Kontaktkort, sykepeleire--------------------------------------------->
+              <section class="card">
+                <div id="fagSPL"></div>
+              </section>
+   <!-------------------------------------------------------------------------------------------------->
+          </div>
+        </div>
+    <!-------------------------------------------------lukk accordion--------------------------------->     
+            
+<!-------------------------------------------Accordion, sykepleiere----------------------------------->
+        <div class="item">
+          <button class="question">
+              <h2>🩺 Sykepleiere:</h2> 
+              <i class="fas fa-chevron-down icon"></i> 
+          </button>
+          <div class="answer">
+   <!-----------------------------------------Kontaktkort, sykepeleire--------------------------------------------->
+              <section class="card">
+                <div id="SPL"></div>
+              </section>
+   <!-------------------------------------------------------------------------------------------------->
+          </div>
+        </div>
+    <!-------------------------------------------------lukk accordion--------------------------------->     
+        
+          <div class="item">
+            <button class="question">
+                <h2>🩹 Helsefagarbeidere:</h2>  
+                <i class="fas fa-chevron-down icon"></i>
+            </button>
+              <div class="answer">
+    <!-----------------------------------------Kontaktkort, hjlpepleiere--------------------------------------------->
+                <section class="card">
+                  <div id="HPL"></div>
+                </section>
+    <!--------------------------------------------------------------------------------------------------->
+              </div>
+            </div>
+          
+        
+        <div class="item">
+          <button class="question">
+            <h2>🏡Praktisk bistand: </h2>  
+            <i class="fas fa-chevron-down icon"></i>
+          </button>
+              <div class="answer">
+  <!----------------------------------------------Kontaktkort, PB-------------------------------------------->
+                <section class="card">
+                  <div id="PB"></div>
+                </section>
+  <!-------------------------------------------------------------------------------------------------->
+              </div>
+            </div>
+         
+<!--------------------------------------------------kontaktkort ekstravakter-------------------------------------------->    
+          <div class="item">
+          <button class="question">
+            <h2>🕢Ekstravakter: </h2> 
+            <i class="fas fa-chevron-down icon"></i>
+          </button>
+              <div class="answer">
+<!--------------------------------------------Kontaktkort------------------------------------------------->
+                <section class="card">
+                  <div id="ekstravakt"></div>
+                </section>
+<!--------------------------------------------------------------------------------------------------------->
+              </div>
+            </div>
+          </div>
+<!--------------------------logginn og loggut------------------------------------------------------------------------------->
+    <div id="team">
+      <form id="loginBox">
+        <h3>🔒Logg inn med brukernavn <strong>teamsør@teamsør.no</strong>, for å se ansatte i team Sør. passord er samme som før</h3>
+
+          <input id="email" type="email" placeholder="E-post">
+          <input id="password" type="password" placeholder="Passord">
+
+          <button id="loginBtn">
+              Logg inn
+          </button>
+          <h5>
+            Kontaktkortene er skjult av hensyn til personvern.
+            Logg inn med brukernavn teamsør@teamsør.no for tilgang. passord er samme som før 
+          </h5>
+      </div>
+    </form>
+
+<!--------------logg ut-knapp: Fjerner ansatteTilgang. Neste gang må de logge inn på nyttig*/-->
+      <div id="logutBox">    
+        <button id="loggutKnapp" style="display:none;">
+        🔒 Logg ut
+        </button>
+        <h5>Når du logger ut, må du skrive brukernavn:<strong>(teamsør@teamsør.no)</strong> og passord igjen for å logge inn. For å få passord se whatsapp-siden for team Sør eller send melding til Sakineh(93674937)</h5>
+      </div>
+      
+      </section>
+
+     
+</main>
+<!-- INSTALLASJONSVINDU -->
+<div id="installModal" class="install-modal">
+  <div class="install-content">
+
+    <span id="closeInstallModal">&times;</span>
+
+    <h2>📲 Installer Team Sør</h2>
+
+    <div class="install-section">
+      <h3><i class="fa-brands fa-chrome"></i> Android – Chrome</h3>
+      <p>1. Trykk på <i class="fa-solid fa-ellipsis-vertical"></i> øverst til høyre</p>
+      <p>2. Velg <i class="fa-solid fa-plus"></i> Installer og lag en snarvei</p>
+      <p>3. Trykk ✅ Installer</p>
+    </div>
+
+    <div class="install-section">
+      <h3><i class="fa-brands fa-brave"></i> Android – Brave</h3>
+      <p>1. Trykk på <i class="fa-solid fa-ellipsis-vertical"></i> nederst til høyre</p>
+      <p>2. Velg: Installer og lag en snarvei</p>
+      <p>3. Trykk ✅ Installer</p>
+    </div>
+
+    <div class="install-section">
+      <h3><i class="fa-brands fa-safari"></i> iPhone / iPad</h3>
+      <p>1. Åpne nettsiden i Safari<i class="fa-brands fa-safari"></i></p>
+      <p>2. Trykk <i class="fa-solid fa-share"></i> Del</p>
+      <p>3. Velg <i class="fa-solid fa-plus"></i> Legg til på Hjem-skjerm</p>
+      <p>4. Trykk ✅ Legg til</p>
+    </div>
+
+    <div class="install-section">
+      <h3>💻 PC</h3>
+      <p>1. Trykk på ⋮</p>
+      <p>2. Velg <i class="fa-solid fa-mobile-screen"></i> Installer Team Sør</p>
+      <p>3. Trykk ✅ Installer</p>
+    </div>
+
+  </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+
+<script>
+ 
+const lightbox = GLightbox({
+    selector: '.glightbox',
+    loop: true,
+    touchNavigation: true,
+    keyboardNavigation: true,
+    closeButton: true
+});
+
+
+
+</script>
+
+
+<script src="searchData.js" defer></script>
+
+<script src="search.js" defer></script>
+
+<script type="module" src="app.js"></script>
+
+<script type="module" src="bursdag.js"></script>
+
+
+
+<script type="module" src="auth.js"></script>
+
+<script type="module" src="login.js"></script>
+
+<script type="module" src="logout.js"></script>
+</body>
+</html>

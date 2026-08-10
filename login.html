@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="gerica.css" />
+    <title>Team Sør - Innlogging</title>
+    <style>
+       body{
+    margin:0;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:Arial, sans-serif;
+    background:linear-gradient(135deg, #2f5d9f, #4a90e2);
+}
+
+.logginn{
+    background:white;
+    padding:40px 30px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    text-align:center;
+    width:90%;
+    max-width:450px;
+}
+
+.logginn img{
+    width:120px;
+    margin-bottom:20px;
+}
+
+.logginn h1{
+    color:#2f5d9f;
+    margin-bottom:10px;
+}
+
+.logginn p{
+    color:#555;
+    margin-bottom:20px;
+}
+
+#password{
+    width:100%;
+    box-sizing:border-box;
+    padding:14px;
+    border:2px solid #d9d9d9;
+    border-radius:12px;
+    font-size:1rem;
+    margin-bottom:20px;
+    transition:0.3s;
+}
+
+#password:focus{
+    outline:none;
+    border-color:#2f5d9f;
+    box-shadow:0 0 10px rgba(47,93,159,0.3);
+}
+
+#loginButton{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    background:#2f5d9f;
+    color:white;
+    font-size:1rem;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+#loginButton:hover{
+    background:#24497d;
+    transform:translateY(-2px);
+}
+
+#loginButton:active{
+    transform:translateY(0);
+}
+
+@media (max-width:600px){
+
+    .logginn{
+        padding:30px 20px;
+    }
+
+    .logginn img{
+        width:100px;
+    }
+
+    .logginn h1{
+        font-size:1.6rem;
+    }
+}
+    </style>
+</head>
+<body>
+<div class="logginn">
+        <img src="images/logo-512.png" alt="Team Sør">
+        <!--<img src="images/logo-512.png" alt="Team Sør">-->
+    
+    
+            <h1>🔒 Team Sør</h1><br>
+
+            <p>Skriv inn passord for å få tilgang.</p>
+
+            <input type="password" id="password" placeholder="Passord">
+
+            <button id="loginButton">
+                Logg inn
+            </button>
+        </div>
+    
+    
+    <script src="login.js"></script>
+
+</body>
+</html>

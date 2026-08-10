@@ -1,0 +1,25 @@
+{
+  "name": "Team Sør",
+  "short_name": "Team Sør",
+  "id": "/Team-S-r/",
+  "description": "Intern nettside for Team Sør i Hjemmesykepleien, Bydel Gamle Oslo.",
+ "start_url": "/Team-S-r/",
+ "scope": "/Team-S-r/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#ffffff",
+  "theme_color": "#2f5d9f",
+
+  "icons": [
+    {
+      "src": "images/logo-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/logo-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

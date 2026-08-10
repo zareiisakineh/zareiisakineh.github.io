@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow">
+  <title>Ansvarsykepleier</title>
+  <link rel="stylesheet" href="gerica.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#2f5d9f">
+   <link rel="icon" href="images/logo-192.png">
+   <link rel="apple-touch-icon" href="images/logo-192.png">
+   <style>
+  .answer img{
+      width: 100%;
+      max-width: 520px;
+  }
+ .rutiner{
+  margin-block: 50px;
+   max-inline-size: 100%;
+   padding-left: 30px;
+ }
+ .steg{
+  background-color: aqua;
+  margin: 0.5rem 0rem;
+  padding: 1rem 0.4rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+ }
+ 
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  
+}
+
+td, th, tr{
+  border: 1px solid #515050;
+  text-align: left;
+  padding: 8px;
+  
+}
+th{
+  background-color: #0669e1;
+  color: white;
+  
+}
+
+
+   @media screen and (max-width: 760px) {
+    .answer img{
+        width: 800rem;
+        max-width: 520px;
+        margin: 10px auto;
+        display: block;
+    }
+    .answer{
+  overflow-x: auto;
+}
+  }
+   @media screen and (max-width: 760px) {
+    table{
+     
+    
+     
+    
+    }
+    table, tr, th, td{
+      font-size: 1rem;
+     
+    }
+    tr, td, th{
+       padding: 8px 12px;
+       white-space: nowrap;
+    }
+}
+</style>
+</head>
+<body>
+
+  <header class="topbar">
+     <!--logo-->
+    <div class="brand">
+        <img src="images/logo-192.png" alt="Team Sør">
+    </div>
+    <nav class="nav" aria-label="Hovedmeny">
+      <button class="menu-toggle" aria-label="Åpne meny" id="menuToggle" aria-expanded="false">☰</button>
+           <ul id="menu"> 
+              <li><a href="index.html" > Hjem</a></li>
+              <li><a href="ekstravakter.html" > Vaktbok</a></li>
+              <li><a href="arbeidsliste.html">Merkantil</a></li>
+              <li><a href="sjekkliste.html" aria-current="page">Ansvarsykepleier </a></li>
+              <li><a href="velferdsTeknologi.html">Velferdsteknologi</a></li>
+              <li><a href="rutiner.html" >Rutiner</a></li>
+              <li><a href="Bursdager.html">Bursdager</a></li>
+              <li><a href="album.html">Sør-album </a></li>
+            </ul>
+    </nav>
+  </header>
+  <main class="container">
+    <div class="card">
+       <h2>Sykepeleier-oppgaver</h2>
+    </div>
+    
+    <section class="card">
+      <div class="item" id="elink">
+          <button class="question">
+              <h3>Sjekkliste for ansvalig sykepleier</h3>
+              <i class="fas fa-chevron-down icon"></i>
+          </button>
+          <div class="answer">
+            <h3>➡️ Elink</h3>
+            <p>Sjekke epikriser, svare på innleggelserapporter, henvendelser fra fastleger/ sykehus o.l.</p><br>
+            <h3>➡️ Tiltaksplaner</h3>
+            <p>Oppdater tiltaksplaner der det er aktuelt. Gå gjennom brukere du er TA for og gjør evt. endringer</p><br>
+            <h3>➡️ Kommunikasjon</h3>
+            <p>Pasientnett, epikriser/journal/medisingylle sjekkes daglig. Gamle epikriser skannes i Gerica. Be om opplæring hvis du ikke er kjent med det.</p><br>
+            <h3>➡️ Medisinrom</h3>
+            <p>Ta ut A og B preparater til neste dag, gå gjennom utstyr og sårutstyr og skriv opp på liste om noe mangler, rydde narkoskap og send tilbake gamle medisiner</p><br> 
+            <h3>➡️ OL-beskjedjournal</h3>
+            <p>Se gjennom OL beskjeder for å danne en oversikt</p><br>
+            <h3>➡️ Rapporter og praktiske oppgaver</h3>
+            <p>Gjennomgang av aktuelle problemstillinger fra rapport. Utføre praktiske oppgaver knyttet til dette</p><br>
+            <h3>➡️ Multidoseimport</h3>
+            <p>Fullfør Multidoseimport hver torsdag i multidose uker</p><br>
+            <h3>➡️ Medisinering</h3>
+            <p>Legg inn medisinendringer for aktuelle brukere på Gerica</p>
+          </div>
+      </div>
+
+      <div class ="item" id="print1">
+        <button class ="question">
+        <h3>Skrive ut arbeidsliste per ansatt</h3><br>
+        <i class="fas fa-chevron-down icon"></i>
+        </button>
+        <div class ="answer">
+          <ul class = "tekst">
+            <li>Klikk på aktivitet</li>
+            <img src="bilder/arbeidslite/liste4.png" >
+            <li>Klikk på arbeidsplanlegging</li>
+            <li>Velg rapport </li>
+            <img src="bilder/arbeidslite/liste5.png" >
+            <li>Deretter arbeidslister per ansatt</li>
+            <img src="bilder/arbeidslite/liste6.png" >
+            <li><strong>Ansatt: </strong>Mulighet for å kunne skrive ut arbeidslister for en gitt ansatt eller rute. Trykk F4 i verdifeltet og søk opp ansatt. Hvis det skal skrives ut arbeidslister på flere ansatte eller ruter, så fylles ikke feltet ut</li>
+            <li><strong>Nivå: </strong></li>
+            <li><strong>Type tjeneste:</strong>høreklikk eller trykk på F4 for å søke opp i nivåetre </li>
+            <li><strong>Fra/til dato:</strong> Datoen du skal skrive ut lister for. 
+            <li>Hent frem ansattes navn ved å høyreklikke i ansattfeltet og husk og skriv etternavn først. Deretter er det viktig å skrive dato for arbeidslisten. Dersom ansatt jobber dobbelvakt må du skrive inn klokkeslett for å unngå en hel arbeidsliste for hele dagen. Helt til slutt må du taste ikon for skriver øverst til venstre.</li>
+              <img src="bilder/arbeidslite/liste7.png" ><br>
+            <li>Hvis det skrives ut arbeidslister for flere ansatte eller ruter, så  vil oppdragene i aktuell periode komme opp som er fordelt på ansatte/rute</li>
+            <li><strong>Fra/Til klokke/utført: </strong>Sett inn tidspunkt. Oppdrag som starter innen for gitt kl.slett blir med</li>
+            <li><strong>Bachnr: </strong>Evnt. sett inn sats/bach nummer(kun per tjenestetype)</li>
+            <li>Tast ikon for skriver slik at du får ut arbeidslisten.</li>
+              <img src="bilder/arbeidslite/liste8.png" >
+          </ul>
+      </div >
+    </div>
+
+    <div class="item" id="print3">
+      <button class= "question">
+        <h3>Lage enkel oppdrag</h3>
+        <i class="fas fa-chevron-down icon"></i>
+      </button>
+      <div class= "answer">
+      <ul>
+        <li>Klikk på brukeroversikt i gerica</li>
+        <img src="bilder/arbeidslite/liste26.png" >
+        <li>Finn riktig bruker</li>
+        <li>klikk på journal</li>
+        <li>Klikk på "Ny</li>
+        <li>Velg journaltype 7, og trykk på tab</li>
+        <li>Høyrklikk på tjeneste, velg hjemmesykepleien</li>
+        <img src="bilder/arbeidslite/liste31.png" >
+        <li>Sett inn riktig dato og klokkeslett</li>
+        <li>Sett inn tiltak: trykk på "ny" - høyreklikk på tiltakstype- finn riktig tiltak-legg inn tid</li>
+        <img src="bilder/arbeidslite/liste32.png" >
+        <img src="bilder/arbeidslite/liste33.png" >
+        <img src="bilder/arbeidslite/liste28.png" >
+      
+      </ul>>
+      </div>
+  </div>
+  <div class="item" id="print4">
+    <button class= "question">
+      <h3>Flytt alle besøk fra en ansatt til en annen</h3>
+    <i class="fas fa-chevron-down icon"></i>
+    </button>
+    <div class= "answer">
+      <ul>
+        <li>Klikk på aktivitiet- øverst i siden</li>
+          <img src="bilder/arbeidslite/liste1.jpg" >
+        <li>i feltet "tjeneste", ser du bare tallet 3 som er hjemmesykepleien, velg høyreklikk på feltet for å få alle tjenestene opp </li>
+        <li>Velg: hjemmesykepleie(tjeneste 3), praktisk bistand(tjeneste 4) og avklaring og mestring(tjeneste 15?)</li>
+          <img src="bilder/arbeidslite/liste16.png" >
+        <li>Velg dato og om du vil se på dag eller kvelds-ruter. 0730-15 eller 15-22</li>
+        <li>Klikk på ok og oppdater siden ved å klikke på oppdater-knappen</li>
+        <li>Nå ser du alle ruter og besøkene per rute for valgt dato</li>
+          <img src="bilder/arbeidslite/liste2.jpg" >
+        <li>Velg og høyreklikk på ansattes navn</li>
+        <li>Navnet til alle ansatte som er på jobb, kommer opp</li>
+        <li>velg riktig ansatt og flytt alle besøk</li>
+        <li>Hvis du skal velge en ansatt som ikke har arbeidsliste: velg en "annen ansatt" og da kan du skrive etternavnet til den ansatte, besøkene skal flyttes til</li>
+        <li>***Viktig*** Ikke glem å velge alle tjenestene som skal bli med, DVS nr 3, 4 og 15</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="item" id="print2">
+    <button class="question">
+      <h3>Printe ut journal/rapport</h3>
+      <i class="fas fa-chevron-down icon"></i>
+    </button>
+    <div class="answer">
+      <ul>
+        <li>Klikk på journal-ikonet øverst på siden</li>
+        <img src="bilder/arbeidslite/liste25.png" >
+        <li>Et nytt vindu åpner seg, klikk på printer-ikonet</li>
+        <li>Skroll ned i det nye vinduet som åpner seg</li>
+        <li>Velg ol-Rapport-hjemmesykepleie Ny(dobbelklikk på den)</li>
+        <img src="bilder/arbeidslite/liste12.png" >
+        <li>velg nivå: dobbelklikk i feltet nivå, høyreklikk og velg hjemmesykepleie team Sør</li>
+        <img src="bilder/arbeidslite/liste24.png" >
+        <li>Velg Fra/Til dato</li>
+        <li>Klikk på printer-ikonet</li>
+        <li>Vent til journalene kommer på skjermen, det kan ta noen sekunder</li>
+        <li>Klikk på printer. Riktig printer er printix-anywhere</li>
+      </ul>
+    </div>
+  </div>
+  <div class="item" id="print10">
+    <button class="question">
+      <h3>Tiltaksplan, V1</h3> 
+      <i class="fas fa-chevron-down icon"></i>
+    </button >
+      <div class="answer"> 
+        <ul>
+          <li>Klikk på brukeroversikt i gerica. Finn og velg brukers navn</li>
+          <li></li>
+          <img src="bilder/arbeidslite/liste26.png" >
+          <li>Klikk på tjeneste</li>
+          <li>Klikk på tiltak og deretter "ny"</li>
+          <li>Velg riktig tiltak</li>
+          <img src="bilder/arbeidslite/liste17.png" >
+          <li>velg tiltaket og klikk på ny. vindu for tidsplan kommer opp</li>
+          <img src="bilder/arbeidslite/liste18.png" >
+          <li>Velg startdato, tidspunkt og rute</li>
+        </ul>
+    </div>
+  </div>
+
+  <div class="item" id="print11">
+      <button class="question">
+      <h3>Tiltaksplan V2</h3> 
+      <i class="fas fa-chevron-down icon"></i>
+      </button >
+    <div class="answer"> 
+      <p>Velg bruker i brukeovesikt</p>
+      <p>Klikk på tiltak øverst i siden</p>
+      <img src="bilder/arbeidslite/liste44.png" >
+      <p>i tiltak-vinduet, kan du ldge/sette/endre:
+        situasjon/tidsplan/nødvendig kompetanse/nivå/tidsestimat/antall utførere/nivå/prosedyre<br>  på tiltakene.
+        Du kan også avslutte tiltak</p>
+      <p>-- Lag ny situasjon:</p>
+      <p>Klikk på "+" tegnet</p>
+      <img src="bilder/arbeidslite/liste35.png" >
+      <p>Høyreklikk i feltet "situasjonstype"</p>
+      <img src="bilder/arbeidslite/liste36.png" >
+      <p>Velg riktig situasjon og lagre</p>
+      <img src="bilder/arbeidslite/liste37.png" >
+      <p>Velg riktig situasjon og lagre</p>
+      <img src="bilder/arbeidslite/liste38.png" >
+      <p>Høyreklikk på tiltaket du vil sette situasjonen på -> Bytt situasjon</p>
+      <img src="bilder/arbeidslite/liste39.png" >
+      <p>Endre prosedyre</p>
+      <img src="bilder/arbeidslite/liste40.png" >
+      <p>Endre kompetanse</p>
+      <img src="bilder/arbeidslite/liste41.png" >
+      <p>Endre nivå på tiltaket</p>
+      <img src="bilder/arbeidslite/liste42.png" >
+      <p>Bruk "justere estimat" for å sette tidsplan på tiltaket</p>
+      <img src="bilder/arbeidslite/liste45.png" >
+      <p>- Her kan du også se fremtidige genererte oppdrag</p>
+      <img src="bilder/arbeidslite/liste46.png" >
+    </div>
+  </div>
+
+  <div class="item" id="medisinEndring">
+      <button class="question">
+        <h3>printe ut medisinliste:</h3>
+        <i class="fas fa-chevron-down icon"></i>
+    </button>
+      <div class="answer">
+        <p>➡️ Finn riktig bruker</p>
+        <p>➡️ Klokk på medisin</p>
+        <p>➡️ Klikk på doseringsliste kompakt</p>
+        <img src="bilder/arbeidslite/liste48.png" >
+        <p>➡️ Skriv ut</p>
+        <p>➡️ Husk å velge riktig printer: printix anywhere</p>
+      </div>
+  </div>
+
+  <div class="item" id="pasientnett">
+    <button class="question">
+        <h3>Hvordan melde brukere inn i pasientnett?</h3>
+        <i class="fas fa-chevron-down icon"></i>
+    </button>
+      <div class="answer">
+        <p>Kommer snart</p>
+      </div>
+  </div>
+
+  <div class="item" id="alarmer">
+  <button class="question">
+              <h3>Oppfølging av alarmer</h3>
+              <i class="fas fa-chevron-down icon"></i>
+          </button>
+          <div class="answer">
+            <p>Sjekk ansvarstelefon og dignio for varsler og behandle disse hver vakt. Dokumenteres i Gerica</p>
+          </div>
+  </div>
+
+  <div class="item" id="ol">
+  <button class="question">
+              <h3>Når bruker skal flytte til en annen bydel/kommune</h3>
+              <i class="fas fa-chevron-down icon"></i>
+          </button>
+          <div class="answer">
+            <p></p>
+          </div>
+  </div>
+  <div class="item" id="rapport">
+  <button class="question">
+              <h3>Mors</h3>
+              <i class="fas fa-chevron-down icon"></i>
+          </button>
+          <div class="answer"> 
+           <ul>
+              <li>➡️ </li>
+              <li>➡️ </li>
+              <li>➡️ </li>
+              <li>➡️ </li>
+              <li>➡️ </li>
+              <li>➡️ </li>
+            </ul>
+          </div>
+  </div>
+  <div class="item" id="multidose">
+  <button class="question">
+              <h3>Rutiner for Multidoseimport</h3>
+              <i class="fas fa-chevron-down icon"></i>
+          </button>
+          <div class="answer">
+            <section>
+                <h3>På multidosedagen team Sør(ulike uker)</h3>
+                <p>➡️ sykepleiere begynner med å multidoseimport (før multidosene blir levert)</p>
+                <p>➡️ Bytt rolle til multidoseimport</p>
+                <p>➡️ Klikk på medisinering, en liste over brukere som trenger multidoseimport kommer opp(det er et konvolut-ikon ved siden av navnet)</p>
+                <p>➡️ Ordinasjonskortene er blitt oppdatert av apoteket på Gerica og de er de samme kortene som vi får levert senere på dagen</p>
+                <p>➡️ Ikke alle med konvolut-ikon, har medisinendringer. Apoteket oppdaterer ordinasjonskortene en gang i måned? og da vises ikonet  </p>
+                <p>➡️ Begynn fra øverst i lista og sjekk om medisinene er riktige før du importerer</p>
+                <p>➡️ </p>
+                <img src="Multidose/MD14.png" style="width: 1000rem;">
+                <p>➡️ Forklaring for symbolene:</p>
+              <ul>
+                <li>- <strong>Seng/institusjonssymbol:</strong> Pasienten har eller har nylig hatt institusjonstjeneste (korttids- eller langtidsopphold).</li>
+                <img src="Multidose/Bilde8.png" style="width: 1000rem;">
+                <li>- <strong>Grønn hake: </strong>Legemiddelet og doseringen på ordinasjonskortet er identisk med det som allerede ligger i Gerica.</li>
+                <img src="Multidose/Bilde22.png" style="width: 1000rem;">
+                <li>- <strong>Gult notatark:</strong> Det finnes merknad eller tilleggsinformasjon knyttet til legemiddelet.</li>
+                <li>- <strong>Grønn sirkel med pluss:</strong> Legemiddelet eller doseringen finnes på ordinasjonskortet, men ikke i Gerica.</li>
+                <li>- <strong>Rød sirkel med minus: </strong>Legemiddelet finnes i Gerica, men ikke på nytt ordinasjonskort.Hva skal vi gjøre?????</li>
+                <li>- <strong>Grønt «abc»-symbol / plante-lignende symbol:</strong> Doseringen er uendret, men merknaden er endret.</li>
+                <li>- <strong>Blå sirkel med «i»:</strong> Legemiddelet er registrert manuelt i Gerica som multidoselegemiddel, men finnes ikke på ordinasjonskortet. Hva skal vi gjøre??????</li>
+                <img src="Multidose/Bilde12.png" style="width: 1000rem;">
+                <li>--- Vurder nøye om legemiddelet skal beholdes eller seponeres.</li>
+                <li>--- Kontroller ordinasjonskort og legens ordinasjon.</li>
+                <li>--- Vær ekstra oppmerksom ved legemidler som er lagt inn manuelt.</li>
+                <li>- <strong>Blått spørsmålstegn:</strong> Medisisne er blitt manuelt registrert i Gerica av en medarbeider. Kontroller om de har kommet i ordinasjonskortet med en grønn hakke ved siden av.Sammenlign også siste epikrise.<br> Gerica mangler tilstrekkelig strukturert informasjon til å gjennomføre full automatisk oppdatering.Hva skal vi gjøre????</li>     
+              </ul>
+
+              <p>➡️ Etter at multidosene er blitt levert: Ta boksene til grupperommet</p>
+              <p>➡️ Nå er medisinene som er blitt imporeter er riktige i Gerica og vi kan kontrollere multidosen mot dem</p>
+              <p>➡️ Finn riktig bruker, åpne medinkortet i Gerica</p>
+              <p>➡️ Sammenlign første dag av hver multidoserull med medisiner i Gerica og sett hakke foran de som er riktige</p>
+              <p>➡️ Sorter rullene som skal sendes til bruker og de som skal beholdes på medisinrommet og legges i bakkene</p>
+              <p>➡️ </p>
+              <p>➡️ </p>
+              <p>➡️ </p>
+              <p>➡️ </p>
+
+            </section>
+              <h1>Fra EQS:</h1>
+              <div class="steg">Steg 1: Forbredelser til multidoseimport</div>
+              <p>Det er stor risiko for feil ved multidoseimport, og importen bør gjennomføres av faste medarbeidere som har fått opplæring og forstår prosessen rundt multidoseimporten.</p>
+              <p>Ansvar: Sykepleier/vernepleier/farmasøyt</p>
+              <p>Bytt til riktig rolle for å kunne jobbe i multidoseimport-bildet.
+                Følg rutine for bestilling og mottak multidose før utføring av multidoseimport: DokumentLegemiddelhåndtering - Multidose - Oppstart, bestilling, mottak og avvikling.
+                Sett av tilstrekkelig tid til multidoseimport på et tilrettelagt sted uten forstyrrelser.
+                Ha tilgjengelig to PC-er og eventuelt en LMP for å kontrollsjekke legemiddellisten etter import. Dette er spesielt viktig for å sjekke om legemidler som tas fast utenom multidoserull vises med riktig dose og tidsplan.
+                Ha fysisk ordinasjonskort tilgjengelig og se på endringsrapporten for å forstå årsaken til endringene, og få et helhetlig overblikk.
+                Sjekk om endringene samsvarer med pasientens sykehistorie og nåværende status (se steg 4).
+                </p>
+                <h3>Ny pasient med multidose - første gang det gjøres multidoseimport </h3>
+              <p>Første gang det utføres multidoseimport, kan det komme en lang og uoversiktlig legemiddelliste.</p>
+              <p>Det anbefales sterkt at legemiddellsamstemming er utført, og at både fastlegen og pasienten/pårørende har bekreftet/avkreftet hvilke legemidler som er i bruk på det gjeldende tidspunktet.</p>
+              <p>Sjekk kjernejournal for å se på historikken, utstedelse av e-resepter og uthenting av legemidler som er gjort det siste året. Hyppigheten av legemidler hentet på apoteket kan gi en indikasjon, men ikke fasit, på hvordan legemidlene blir brukt (ofte/for sjeldent/ikke i det hele tatt).</p>
+              <p>Ta kontakt med fastlegen ved tvil.</p>
+              <div class="steg">Steg 2: åpne multidoseimport bilde</div>
+              
+              <p>Klikk på madisin-knappen, velg Multidoseimport<br>    
+                Da kommer dette bildet opp (brukerbilde til venstre og legemiddeloversikt til høyre):
+              </p>
+              <img src="Multidose/Bilde5.png" style="width: 800rem;">
+          
+              <div class="steg">Steg 3:Gå gjennom brukerbilde og leggemiddeloversikten</div>
+              <p>Se igjennom brukerbildet og legemiddeloversikten for å få et helhetlig bilde over:</p>
+              <p>hvem som er innlagte på korttids-/langtidsinstitusjoner</p>
+              <p>nye innmeldte pasienter</p>
+              <p>multidoseleveranser som er satt på midlertidig stopp</p>
+              <p>Se her for forklaring av kolonnene og symboler i oversikten</p>
+              <div class="steg">Brukerbilde</div>
+              <p>Venstre side i multidoseimportbildet viser oversikt over alle pasienter. Pasienten kommer med på multidoseimportlisten i tilfeller der pasienten har:</p>
+              <p>et legemiddel i medisinkortet som er merket som multidose</p>
+              <p>mottatt ordinasjonskort som enda ikke er importert</p>
+              <img src="Multidose/Bilde8.png" style="width: 800rem;">
+              <p>Nullstill avkrysningskolonnen "Mottatt" ved å trykke på .  </p>
+              <p>Huk så av avkrysningsboksen "Mottatt" for hver multidoserull som er fysisk mottatt fra apoteket.</p>
+              <div class="steg">Steg 4:Gjennomgang av ordinasjonskort og ligemiddelliste</div>
+              <p>Gå gjennom ordinasjonskortet på papir og sammenlign med eksisterende legemiddelliste.</p>
+              <p>Sjekk eLink for endringer fra fastlegen.</p>
+              <p>Vurder endringer som fastlegen ikke har informert om (eksempel: nye legemidler, endring av dose eller seponeringer). 
+              Kan endringene/avvikene skyldes gammel legemiddelliste fra siste innleggelse/ikke oppdatert legemiddelliste med gammel informasjon? </p>
+              <p>Sjekk kjernejournalen for nye resepter som kan bekrefte/avkrefte ny informasjon i epikrisen/endringene fra fastlegen.</p>
+              <p>Informer fastlegen om nye endringer eller eventuelle feil, og be om at det sendes ny oppdatertlegemiddelliste til multidoseapotek.</p>
+              <p>Sørg for å ha tilstrekkelig med legemidler og be om e-resept ved påbegynt behandling før ny multidose er pakket.</p>
+              <p>Dokumenter viktige endringer i 136-fagjournal i Gerica og informer pasient/pårørende.</p>
+            <div class="steg">Steg 5: Utfør multidoseimport</div>
+              <p>Utfør multidoseimport ved å huke av for riktige legemidler som skal importeres, slik at legemiddellisten og informasjonen knyttet til legemiddelbruken vises riktig i Gerica.</p>
+              <p>Vær nøye med å se på hvert symbol som står foran det enkelte legemiddelet og hvilken betydning det har for hva som skjer med det enkelte legemiddelet/dosering ved import av ordinasjonskortet til pasientens legemiddelliste (se detaljert beskrivelse av symboler for status i multidoseimport bildet).</p>
+              <p>OBS! Dersom informasjonen om hvordan legemiddelet skal brukes er lagt inn manuelt i Gerica, pass på å huke av for riktig linje slik at viktig informasjon ikke blir slettet etter importen. </p>
+              <p>Husk å ta multidoseimport på multidoserullene som kommer til tjenestestedet utenom vanlige multidoseleveranser (eksempel: hastebestillinger, nye pasienter til avdelingen).</p>
+              <p>Dersom multidoseimport ikke er mulig å gjennomføre, må alle legemidler skrives manuelt inn i Gerica.</p>
+              <p>NB! Dersom et legemiddel er lagt inn manuelt, vil legemiddelet ligge dobbelt i sammenstillingsmodulen når det mottas nytt ordinasjonskort hvor dette legemiddelet er lagt inn. Det er da viktig å sette hake for å seponere den manuelle registreringen med symbol slik at legemiddelet kun kommer opp en gang i legemiddellisten i Gerica.</p>
+              <img src="Multidose/Bilde12.png" style="width: 800rem;">
+              <div class="steg">Steg 6: Etterarbeid og kontroll etter at multidoseimport er utført</div>
+              <p>Sjekk alltid legemiddellisten i Gerica etter at multidoseimporten er utført.</p>
+              <p>Alle legemidler pasienten bruker skal gis etter skriftlig ordinering fra legen. Hvis det ikke foreligger en slik ordinering, skal de ikke stå på legemiddellisten og skal heller ikke gis til pasienten.</p>
+              <p>Gjør manuelle endringer i legemiddellisten i Gerica etter utført multidoseimport hvis det er behov for å:</p>
+              <p>legge til nytt legemiddel</p>
+              <p>seponere legemiddel</p>
+              <p>Sjekk at legemidler utenom multidose ligger riktig under faste/daglige inntak og eventuelle legemidler.</p>
+              <p>Sjekk om alle legemidler ved behov står på ordinasjonskortet. Hvis et legemiddel som ikke er brukt over lengre tid skal fjernes, eller et nytt legemiddel som ikke står der skal oppføres, skal dette bekreftes/avkreftes av fastlegen først, og endringene skal sendes til multidoseapotek ved første anledning.</p>
+              <p>Sjekk på LMP at dose og tidspunkt er riktig etter multidoseimport for legemidler utenom multidose. Vises ikke dette riktig på LMP må legemiddelet seponeres først, og så legges inn på nytt med riktig dose og tidsplan.</p>
+              <p>Eksempler på ikke-strukturert tekst som kan sendes fra legen og hvor det er stor risiko at det vises feil på LMP er legemidler som:</p>
+              <p>skal gis flere enn fire ganger daglig (parkinsonmedisin) </p>
+              <p>brukes etter avtale med legen (inhalasjoner og insulin) </p>
+                <p>Oppdater legemiddellisten slik at den samsvarer med legemidlene som skal gis til pasienten.</p>
+                <div class="steg">Steg 7: Bytt ut eksisterenede/gammelt ordinasjonskort</div>
+                <p>Det følger med to nye ordinasjonskort ved endringer </p>
+              <p>På tjenestestedet (medisinrom eller annet låst rom)</p>
+              <p>Ta ut gammelt ordinasjonskort fra perm.</p>
+              <p>Legg nytt ordinasjonskort (der endringene står forklart) i egen perm.</p>
+              <p>Makuler gammelt ordinasjonskort.</p>
+              <div class="steg">Hos pasient</div>
+              <p>Ta med nytt ordinasjonskort (det uten endringene) hjem til pasient.</p>
+              <p>Ta med gammelt ordinasjonskort tilbake til kontoret.</p>
+              <p>Makuler gammelt ordinasjonskort.</p>
+              <p>Dokumenter at du har lagt igjen nytt ordinasjonskort.</p>
+              <p>Oppdatert ordinasjonskort skal ligge hjemme hos pasient slik at pasient/pårørende og eventuelt annet helsepersonell ved behov, kan få oversikt over legemidler pasienten bruker.  Det er viktig å ha oppdatert ordinasjonskort/legemiddelliste hjemme hos pasienten i tilfeller der LMP ikke fungerer, systemet er nede eller pasient får besøk av legevakt.</p>
+              <p>Medarbeidere skal ta utgangspunkt i legemiddellisten i Gerica når de deler ut legemidler hos pasient. Ordinasjonskortet kan også brukes til å skaffe seg en oversikt over alle legemidlene og for å finne bilde av legemidlene som ligger i multidoseposene.</p>
+            <div class="steg">Steg 8:Gjenta steg 1-7 på alle pasienter med endringer i ordinasjonskortet</div>
+              <div class="steg">Steg 9: Gjennomfør dobbeltkontroll i multidoseimportene</div>
+              <p>Ansvarlig: Annen sykepleier/vernepleier/farmasøyt enn den som utførte multidoseimporten</p>
+              <p>Utfør alltid dobbeltkontroll av multidoseimport
+                Journalfør i Gerica.
+                </p>
+              <p>Følgende tiltak brukes ved multidoseimport, og skal være et aktivt tiltak hos alle pasienter der multidoseimport skal utføres:</p>
+             <p>x.4.2.9 Multidose - kontrollere</p>
+             <p>x.4.2.10 Multidoseimport og dobbeltkontroll</p>
+          <div class="steg">Steg 10: Seponering av legemiddel som allerede er pakket i multidose</div>
+             <p>Fjern legemiddel som skal seponeres og destruer.</p>
+            <p>Legg legemidlene over i dosett. Posene skal ikke klippes og tapes igjen.</p>
+            <p>Utfør alltid dobbeltkontroll av seponeringen.</p>
+            <p>Journalfør i Gerica. Følgende tiltak kan brukes:</p>
+            <p>x.4.2.11 Seponering fra multidose</p>
+            <p>x.4.2.12 Kontroll av seponering fra multidose</p>
+            <div class="steg">Steg 11: Ta med multidoserullene ut til pasientene</div>
+            <p>Ferdigkontrollerte multidoserullene fordeles til ansatte etter arbeidslister/ruter og tas med ut til pasientene.</p>
+            <p>Journalfør i Gerica. Følgende tiltak kan brukes:</p>
+            <p>x.4.1.6 Multidose levering</p>
+            <p>tiltak x.4.1.6 Multidose – levere (alle pasienter som tjenesten mottar multidoseruller på skal ha dette tiltaket)</p>
+            <img src="Multidose/MD10.png" >
+            <img src="Multidose/MD11.png" >
+            <img src="Multidose/MD12.png" >
+            <img src="Multidose/MD13.png" >
+          </div>
+  </div>
+
+  <div class="item" id="tiltak">
+  <button class="question">
+              <h3>Sårstell(TIMES)</h3>
+              <i class="fas fa-chevron-down icon"></i>
+          </button>
+          <div class="answer">
+            <ul>
+              <li>➡️ </li>
+              <li>➡️ </li>
+              <li>➡️ </li>
+              <li>➡️ </li>
+              <li>➡️ </li>
+              <li>➡️ </li>
+            </ul>
+           
+          </div>
+  </div>
+
+  <div class="item" id="kommunikasjon">
+  <button class="question">
+              <h3>NEWS2 (National Early Warning Score)</h3>
+              <i class="fas fa-chevron-down icon"></i>
+          </button>
+          <div class="answer">
+            <table>
+              <tr>
+                <th>Fysiologiske parametere</th>
+                <th>  3  </th>
+                <th>  2  </th>
+                <th>  1  </th>
+                <th>  0  </th>
+                <th>  1  </th>
+                <th>  2  </th>
+                <th>  3  </th>
+              </tr>
+              <tr>
+                <td style=" background-color: #0669e1; color: white;">Respirasjonsfrekvens (per minutt)</td>
+                <td style="background-color: rgb(248, 144, 59);"><= 8</td>
+                <td style="background-color: rgb(252, 187, 134);"></td>
+                <td style="background-color: rgb(235, 249, 184);"> 9-11 </td>
+                <td style="background-color: white;"> 12-20 </td>
+                <td style="background-color: rgb(235, 249, 184);"></td>
+                <td style="background-color: rgb(252, 187, 134);"> 21-24 </td>
+                <td style="background-color: rgb(248, 144, 59);"> >=25</td>
+               
+              </tr>
+              <tr>
+                <td style=" background-color: #0669e1; color: white;">SpO2, Skala 1 (%)</td>
+                <td style="background-color: rgb(248, 144, 59);"><= 91</td>
+                <td style="background-color: rgb(252, 187, 134);">92-93</td>
+                <td style="background-color: rgb(235, 249, 184);">94-95</td>
+                <td style="background-color: white;">>= 96 </td>
+                <td style="background-color: rgb(235, 249, 184);"></td>
+                <td style="background-color: rgb(252, 187, 134);"></td>
+                <td style="background-color: rgb(248, 144, 59);"></td>
+               
+              </tr>
+               <tr>
+                <td style=" background-color: #0669e1; color: white;">SpO2, Skala 2 (%)</td>
+                <td style="background-color: rgb(248, 144, 59);"><= 83</td>
+                <td style="background-color: rgb(252, 187, 134);">84-85</td>
+                <td style="background-color: rgb(235, 249, 184);">86-87</td>
+                <td style="background-color: white;">88-92 >= 93 på luft </td>
+                <td style="background-color: rgb(235, 249, 184);">93-94</td>
+                <td style="background-color: rgb(252, 187, 134);">95-96 på oksygen </td>
+                <td style="background-color: rgb(248, 144, 59);"> >=97 på oksygen </td>
+               
+              </tr>
+              <tr>
+                <td style=" background-color: #0669e1; color: white;">Luft eller oxygen</td>
+                <td style="background-color: rgb(248, 144, 59);"></td>
+                <td style="background-color: rgb(252, 187, 134);">Oksygen</td>
+                <td style="background-color: rgb(235, 249, 184);"></td>
+                <td style="background-color: white;">Luft</td>
+                <td style="background-color: rgb(235, 249, 184);"></td>
+                <td style="background-color: rgb(252, 187, 134);"></td>
+                <td style="background-color: rgb(248, 144, 59);"></td>
+               
+              </tr>
+              <tr>
+                <td style=" background-color: #0669e1; color: white;">Systolisk blodtrykk (mmHg)</td>
+                <td style="background-color: rgb(248, 144, 59);"><= 90</td>
+                <td style="background-color: rgb(252, 187, 134);">91-100</td>
+                <td style="background-color: rgb(235, 249, 184);">101-110</td>
+                <td style="background-color: white;">111-219</td>
+                <td style="background-color: rgb(235, 249, 184);"></td>
+                <td style="background-color: rgb(252, 187, 134);"></td>
+                <td style="background-color: rgb(248, 144, 59);"> >= 220</td>
+               
+              </tr>
+              <tr>
+                <td style=" background-color: #0669e1; color: white;">Pulsfrekvens (pr. minutt)</td>
+                <td style="background-color: rgb(248, 144, 59);"> <= 40 </td>
+                <td style="background-color: rgb(252, 187, 134);"></td>
+                <td style="background-color: rgb(235, 249, 184);"> 41-50 </td>
+                <td style="background-color: white;"> 51-90 </td>
+                <td style="background-color: rgb(235, 249, 184);"> 91-110 </td>
+                <td style="background-color: rgb(252, 187, 134);"> 111-130 </td>
+                <td style="background-color: rgb(248, 144, 59);"> >= 131 </td>
+               
+              </tr>
+              <tr>
+                <td style=" background-color: #0669e1; color: white;">Bevissthetsnivå</td>
+                <td style="background-color: rgb(248, 144, 59);"></td>
+                <td style="background-color: rgb(252, 187, 134);"></td>
+                <td style="background-color: rgb(235, 249, 184);"></td>
+                <td style="background-color: white;"> A </td>
+                <td style="background-color: rgb(235, 249, 184);"></td>
+                <td style="background-color: rgb(252, 187, 134);"></td>
+                <td style="background-color: rgb(248, 144, 59);"> C, V, P, U</td>
+               
+              </tr>
+              <tr>
+                <td style=" background-color: #0669e1; color: white;">Temperatur</td>
+                <td style="background-color: rgb(248, 144, 59);"> <=35,0</td>
+                <td style="background-color: rgb(252, 187, 134);"></td>
+                <td style="background-color: rgb(235, 249, 184);"> 35.1-36.0</td>
+                <td style="background-color: white;"> 36,1-38,0</td>
+                <td style="background-color: rgb(235, 249, 184);"> 38,1-39,0</td>
+                <td style="background-color: rgb(252, 187, 134);"> >=39,1</td>
+                <td style="background-color: rgb(248, 144, 59);"></td>
+              </tr>
+            </table>
+
+            <table style="margin-top:10px; border-collapse : collapse !important; background-color:white !important;">
+              <tr>
+                <td>Bevissthetsnivå</td>
+                <td>Skala 2:</td>
+              </tr>
+
+              <tr>
+                <td>A= Alert (Våken)</td>
+                <td>Lege skal dokumentere i journal når skala2 skal brukes.<br>
+                 Ved alle andre tilfeller brukes Skala1</td>
+              </tr>
+
+              <tr>
+                <td>C: Confusion (Nyoppstått forvirring)</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>V: Voice (reagerer på tiltale)</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>P: pain (reagerer på smertestimulering)</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>U: unresponsiv (reagerer ikke på tale- eller smertestimulering)</td>
+                <td>VED HJERTESTANS RING 113 OG START HLR</td>
+              </tr>
+            </table>
+
+          
+         
+          </div>
+  </div>
+
+  <div class="item" id="medisinrom">
+  <button class="question">
+              <h3>Tiltak etter NEWS-skår</h3>
+              <i class="fas fa-chevron-down icon"></i>
+          </button>
+          <div class="answer">
+             <table>
+              <tr>
+                <th>NEWS-skår</th>
+                <th>Overvåkningsfrekvens</th>
+                <th>Klinisk respons</th>
+                <th>Fare for mortalitet</th>
+              </tr>
+
+              <tr>
+                <td style="background-color: rgb(213, 213, 212);">0</td>
+                <td style="background-color: rgb(213, 213, 212);">Minimum hver 12 time</td>
+                <td style="background-color: rgb(213, 213, 212);">Følg rutinene for MEWS2 overvåkning ved ditt arbeidssted</td>
+                <td style="background-color: rgb(213, 213, 212);">Lav</td>
+              </tr>
+
+              <tr>
+                <td style="background-color: rgb(213, 213, 212);">Totalt 1-4</td>
+                <td style="background-color: rgb(213, 213, 212);">Maksimum hver 4-6 time</td>
+                <td style="background-color: rgb(213, 213, 212);">-Informer ansvarlig sykepleier/helsepersonell på vakt om NEWS2 skår<br>
+                  -Ansvarlig sykepleier/helsepersonell tar stilling til økt overvåknings-frekvens, 
+                  behov for klinisk tiltak og/eller legevurdering</td>
+                <td style="background-color: rgb(213, 213, 212);">Lav</td>
+              </tr>
+
+              <tr>
+                <td style="background-color: rgb(235, 249, 184);">Skår 3 i ett parameter</td>
+                <td style="background-color: rgb(235, 249, 184);">Minst en gang per time</td>
+                <td style="background-color: rgb(235, 249, 184);">- Ansvarlig sykepleier/helsepersonell skal kontakte lege umiddelbart for vurdering<br>
+                - Vurdere behov for tettere overvåkning eller høyere behandlingsnivå</td>
+                <td style="background-color: rgb(235, 249, 184);">Lav-Middels</td>
+              </tr>
+
+              <tr>
+                <td style="background-color: rgb(252, 187, 134);">Totalt 5 eller høyere grenseverdi for rask responssenter</td>
+                <td style="background-color: rgb(252, 187, 134);">Minimum en gang i timen</td>
+                <td style="background-color: rgb(252, 187, 134);">- Ansvarlig sykepleier/helsepersonell skal umiddelbart kontakte lege<br>
+                - lege vurderer behov for overflytting til høyere behandlingsnivå</td>
+                <td style="background-color: rgb(252, 187, 134);">Middels</td>
+              </tr>
+
+              <tr>
+                <td style="background-color: rgb(248, 144, 59);">Totalt 7 eller høyere<br>øyeblikkelig respons</td>
+                <td style="background-color: rgb(248, 144, 59);">Kontinuerlig overvåkning av vitale funksjoner</td>
+                <td style="background-color: rgb(248, 144, 59);">- Ansvarlig sykepleier/helsepersonell skal umiddelbart kontakte ansvarlig lege, legevakt og/eller 113<br>
+                - Videre behandling med riktig begandlingsnivå med kontinuerlig overvåkning vurderes. Dette må vurderes opp mot behandlingsbegrensende hensyn</td>
+                <td style="background-color: rgb(248, 144, 59);">Høy</td>
+              </tr>
+             
+            </table>
+          </div>
+  </div>
+
+   <div class="item" id="medisinrom">
+  <button class="question">
+              <h3>ABCDE-Observasjon og tiltak</h3>
+              <i class="fas fa-chevron-down icon"></i>
+          </button>
+          <div class="answer">
+              <table>
+              <tr>
+                <th>ABCDE-Observasjon og tiltak</th>
+              </tr>
+
+              <tr>
+                <td><strong>▶️ A:  Airways/Luftveier</strong><br>Sørg for fire luftveier 👉 Hodeløft/kjevetak, sideleie, fjerne fremmedlegme</td>
+              </tr>
+
+              <tr>
+                <td><strong>▶️ B:  Breathing/ respirasjon</strong><br>Pustebesvær/taledyspne, respirasjonsfrekvens, 
+                  respirasjonslyder, rytme/dybde, hjelpemuskulatur, cyanose, SpO2 👉 Kroppsleie, berolige, pusteveiledning, oksygen</td>
+              </tr>
+
+              <tr>
+                <td><strong>▶️ C: Circulation / Sirkulasjon</strong><br>
+                Hud (farge / temp, kald/kvalm), kopillær fyllingstid, puls (rytme/fylde), BT</td>
+              </tr>
+
+              <tr>
+                <td><strong>▶️ D:Disability / Bevissthet </strong> <br> Bevissthetsnivå (ACVPU), tegn på hjerneslag (PSL/andresymp.), sjekk pupiller og evt. blodsukker 👉 Frie luftveier, evt. sideleie, regulere blodsukker</td>
+              </tr>
+
+              <tr>
+                <td><strong>▶️ E: Exposure</strong> / Kroppsundersøkelse / omgivelser / Hudforandringer (utslett, sår ol.), kateter/ dren, temperatur, feilstilling / brudd, smerter etc. Endring i hjemmeforhold? 👉 Tiltak avhenger av funn</td>
+              </tr>
+            </table>
+
+            <table>
+              <tr>
+                <th>Mistanke om sepsis</th>
+              </tr>
+
+              <tr>
+                <td>quick SOFA (qSOFA)</td>
+              <tr>
+                
+              </tr>
+                <td>Respirasjonsfrekvens >= 22 <br>
+                Endret metal status <br>
+                Systolisk BT <= 100 mm Hg<br>
+                MVed mistanke om klinisk infeksjon og minst to av kriteriene over og/eller NEWS >= 5: <br>
+                Varsel lege og/eller kontakt legevakten <a href="tel:116117" >📞</a>
+              </td>
+              </tr>
+              </table>
+
+              <table>
+                <tr>
+                  <th>Tegn på hjerneslag</th>
+                </tr>
+                <tr>
+                  <td>PSL: prate, smile, løfte <br> 
+                      Andre symptomer: <br>Akutt oppstått ensidig koordinasjonssvikt (akutt gangvansker) <br>
+                      Halvsidig synsfeltutfall<br>
+                      Hyperakutt hodepine<br>
+                      Nedsatt snsibilitet<br>
+                      Varsel lege og/eller kontakt legevakten <a href="tel:116117" >📞</a>
+                  </td>
+                </tr>
+              </table>
+            </table>
+
+
+
+          </div>
+  </div>
+
+   <div class="item" id="medisinrom">
+  <button class="question">
+              <h3>ISBAR - Kommunikasjon</h3>
+              <i class="fas fa-chevron-down icon"></i>
+          </button>
+          <div class="answer">
+            <table>
+              <tr>
+                <th>▶️ ISBAR-kommunikasjon</th>
+              </tr>
+
+              <tr>
+                <td>▶️ I: Identifikasjon<br>Ditt navn, funksjon og arbeidssted, pasientens navn, fødselsnummer og adresse</td>
+              </tr>
+
+              <tr>
+                <td>▶️ S: Situasjonen<br>  Hva er det aktuelle problemet / årsaken til kontakt? "jeg ringer fordi..."</td>
+              </tr>
+
+              <tr>
+                <td>▶️ B: Bakgrunn<br> Kortfattet og relevant sykehistorie, aktuell diagnose og/eller tidligere diagnoser, Evt. smitte/allergier og behandlingsreservasjoner</td>
+              </tr>
+
+              <tr>
+                <td>▶️ A: Aktuell tilstand<br>Aktuelle målinger etter ABCDE observasjoner, evt. NEWS skår<br>"jeg er bekymret fordi...", "jeg tror årsaken er..."</td>
+              </tr>
+
+              <tr>
+                <td>▶️ R: Råd/Respons<br> "Hva synes du jeg skal gjøre?", "Da gjjør jeg følgende...", 
+                  "Når vil du at jeg skal ta kontakt igjen?", <br>Bli enige om felles plan for videre oppfølging</td>
+              </tr>
+
+            </table>
+          </div>
+  </div>
+
+   <div class="item" id="medisinrom">
+  <button class="question">
+              <h3>Systematisk ernæringsarbeid i hjemmeyjenesten</h3>
+              <i class="fas fa-chevron-down icon"></i>
+          </button>
+          <div class="answer">
+             <ul>
+              <h3>Klinisk ernæringsfysiolog, telefon 45733162, <br>epost: kristiane.hjelkrem@bgo.oslo.kommune.no</h3>
+              <li>➡️ Henvisning til kef sendes i ELISE</li>
+              <li>➡️ For brukere som ikke har kef fra før - sende henvendelse til arbeidsteam Gamle Oslo KEF.</li>
+              <li>➡️ For brukere hvor kef allerede er inne kan det sendes Oppgave i ELISE til arbeidsteam Gamle Oslo KEF</li>
+              <li>➡️ Alle brukere skal ha vektkontroll og vurdering av ernæringsstatus</li>
+            </ul>
+          </div>
+  </div>
+
+   <div class="item" id="medisinrom">
+  <button class="question">
+              <h3>Oppdatering av ADL og IPLOS</h3>
+              <i class="fas fa-chevron-down icon"></i>
+          </button>
+          <div class="answer">
+             <ul>
+              <li>➡️ </li>
+              <li>➡️ </li>
+              <li>➡️ </li>
+              <li>➡️ </li>
+              <li>➡️ </li>
+              <li>➡️ </li>
+            </ul>
+          </div>
+  </div>
+
+   <div class="item" id="medisinrom">
+  <button class="question">
+              <h3></h3>
+              <i class="fas fa-chevron-down icon"></i>
+          </button>
+          <div class="answer">
+             <ul>
+              <li>➡️ </li>
+              <li>➡️ </li>
+              <li>➡️ </li>
+              <li>➡️ </li>
+              <li>➡️ </li>
+              <li>➡️ </li>
+            </ul>
+          </div>
+  </div>
+
+   <div class="item" id="medisinrom">
+  <button class="question">
+              <h3></h3>
+              <i class="fas fa-chevron-down icon"></i>
+          </button>
+          <div class="answer">
+             <ul>
+              <li>➡️ </li>
+              <li>➡️ </li>
+              <li>➡️ </li>
+              <li>➡️ </li>
+              <li>➡️ </li>
+              <li>➡️ </li>
+            </ul>
+          </div>
+  </div>
+
+   <div class="item" id="medisinrom">
+  <button class="question">
+              <h3></h3>
+              <i class="fas fa-chevron-down icon"></i>
+          </button>
+          <div class="answer">
+             <ul>
+              <li>➡️ </li>
+              <li>➡️ </li>
+              <li>➡️ </li>
+              <li>➡️ </li>
+              <li>➡️ </li>
+              <li>➡️ </li>
+            </ul>
+          </div>
+  </div>
+</section>
+</main>
+
+
+<script src="searchData.js" defer></script>
+<script src="search.js" defer></script>
+<script type="module" src="app.js"></script>
+</body>
+</html>

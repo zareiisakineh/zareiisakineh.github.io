@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Team Sør</title>
+  <link rel="stylesheet" href="gerica.css" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+</head>
+<body>
+
+  <header class="topbar">
+    <!--logo-->
+    <div class="brand">
+    <span class="brand-title">
+        <img src="bilder/logo.png" width="350">
+    </span>
+</div>
+    <nav class="nav" aria-label="Hovedmeny">
+      <button class="menu-toggle" aria-label="Åpne meny" id="menuToggle" aria-expanded="false">☰</button>
+      <ul id="menu"> 
+      <li><a href="index.html" >Hjem</a></li>
+      <li><a href="forStudenter.html">For studenter</a></li>
+        <li><a href="arbeidsliste.html">Print</a></li>
+       <!--
+        <li><a href="prosedyrer.html" aria-current="page">Prosedyrer</a></li>
+       -->
+        <li><a href="sjekkliste.html">Ansvarsykepleier </a></li>
+         <li><a href="velferdsTeknologi.html">Velferdsteknologi</a></li>
+    <!--
+        <li><a href="gangTid.html">Gangtid</a></li>
+-->
+          <li><a href="rutiner.html" >Rutiner</a></li>
+        <li><a href="Bursdager.html">Bursdager</a></li>
+          <li><a href="album.html">Sør-album </a></li>
+      </ul>
+     
+    </nav>
+  </header>
+
+   <main class="container ">
+      <h1> Nyttige prosedyre</h1>
+      <p class="lead">Her finner du  vanlige prosedyrer </p>
+
+    <section class="card">
+    <div class="item">
+        <button class="question" onclick="toggleAccordion(this)">
+            <span>Stell av PICC-line</span>
+            <i class="fas fa-chevron-down icon"></i>
+        </button>
+        <div class="answer"><br>
+      <h3>PICC-line: stell av innstikksted</h3><br>
+
+<p>
+    PICC-line (Perifert Innlagt Sentralt Venekateter) er et perifert innlagt sentralt venekateter.
+</p><br>
+
+<h4>Forberedelse</h4>
+<ul>
+    <li>Utfør håndhygiene.</li>
+    <li>Ta på rene hansker.</li>
+</ul><br>
+
+<h4>Fjern gammel bandasje</h4>
+<ul>
+    <li>Fjern den gamle bandasjen forsiktig.</li>
+    <li>Løsne den transparente bandasjen ytterst og trekk den av mot innstikkstedet.</li>
+</ul><br>
+
+<h4>Observer innstikkstedet</h4>
+<ul>
+    <li>Inspiser innstikkstedet/utløpsstedet for:</li>
+</ul>
+       <ul>
+        <li>Lokalt ødem.</li>
+        <li>Hematom.</li>
+        <li>Lekkasje.</li><br>
+        <li><strong>Tegn til infeksjon:</strong>  </li>
+         </ul>  
+        
+        <ul>
+                <li>Ømhet.</li>
+                <li>Rødme.</li>
+                <li>Varme.</li>
+                <li>Hevelse.</li>
+                <li>Pussdannelse.</li>
+                <li>Lukt.</li>
+            </ul>
+       
+    
+</ul>
+<br>
+<p><strong>Ved tegn til infeksjon:</strong><br> Kontakt lege for vurdering av aktuelle tiltak, for eksempel mikrobiologisk prøvetaking eller fjerning av kateter.</p>
+<br>
+<h4>Rengjøring av innstikksted</h4>
+<ul>
+    <li>Ta av hanskene og utfør håndhygiene.</li>
+    <li>Ta på rene hansker.</li>
+    <li>Bruk steril pinsett.</li>
+    <li>Fukt en steril tupfer med desinfeksjonsmiddel.</li>
+    <li>Desinfiser huden tilsvarende bandasjens størrelse fra innstikkstedet og utover.</li>
+    <li>Bruk ny tupfer for hvert drag.</li>
+    <li>La huden lufttørke i minimum 30 sekunder.</li>
+    <li>Vær forsiktig slik at kateteret ikke forflyttes.</li>
+</ul>
+<br>
+<h4>Rengjør kateteret</h4>
+<ul>
+    <li>Bruk steril pinsett.</li>
+    <li>Fukt en steril tupfer med desinfeksjonsmiddel.</li>
+    <li>Desinfiser hud og kateter fra innstikkstedet og mot plasteret med venekateterlås.</li>
+    <li>La området lufttørke.</li>
+</ul>
+<br>
+<h4>Skifte plaster med venekateterlås</h4>
+
+<p>
+    Plaster med venekateterlås bør skiftes samtidig med ukentlig rutinemessig stell av innstikkstedet.
+    Ved behov for hyppigere stell skiftes låsen kun dersom den er løs eller forurenset.
+</p>
+
+<ul>
+    <li>Ta av beskyttelseshanskene dersom plaster med venekateterlås skal skiftes.</li>
+    <li>Utfør håndhygiene.</li>
+    <li>Ta på sterile hansker.</li>
+    <li>Fikser kateteret midlertidig med steril suturtape.</li>
+    <li>Bruk ny steril pinsett.</li>
+    <li>Fukt plastervingene med en steril tupfer med desinfeksjonsmiddel.</li>
+    <li>Åpne kateterlåsen.</li>
+    <li>Frigjør kateteret og fjern plaster med kateterlås forsiktig.</li>
+    <li>Desinfiser festestedet med desinfeksjonsmiddel.</li>
+    <li>La området lufttørke.</li>
+    <li>Påfør hudbeskyttende krem på festestedet og la den lufttørke i henhold til produktbeskrivelsen.</li>
+    <li>Fikser PICC-line-kateteret i kateterlåsen og lukk låsen.</li>
+    <li>Fjern beskyttelsespapiret fra plasterets underside én side om gangen.</li>
+    <li>Fest plasteret til huden.</li>
+    <li>Fjern suturtapen som midlertidig fikserte kateteret.</li>
+</ul>
+<br>
+<h4>Avslutning</h4>
+<ul>
+    <li>Kontroller at kateteret sitter godt festet.</li>
+    <li>Forsikre deg om at bandasjen sitter tett og at kateteret ikke utsettes for drag.</li>
+    <li>Dokumenter utført stell og eventuelle observasjoner i pasientjournalen.</li>
+</ul>
+
+<button class="minPiccLine">
+<a   href="https://www.youtube.com/watch?v=rN5AK22aCvo">Video1</a>
+</button>
+
+<button class="minPiccLine">
+<a   href="https://www.youtube.com/watch?v=rN5AK22aCvo">Video2</a>
+</button>
+
+<button  class="minPiccLine">
+<a   href="https://www.youtube.com/watch?v=rN5AK22aCvo">Video3</a>
+</button>
+      
+
+        </div>
+    </div>
+<!--
+   Nefrostomi 
+-->
+    
+<div class="item">
+        <button class="question" onclick="toggleAccordion(this)">
+            <span>Nefrostomi</span>   
+            <i class="fas fa-chevron-down icon"></i>        
+        </button>
+        <div class="answer">
+            <p>Prosedyre for Nefrostomi.</p><br>
+              <h3>Nefrostomikateter: stell av innstikksted</h3>
+
+        <p>
+            Bandasjen skiftes minst én gang per uke, eller oftere dersom den blir
+            gjennomtrukket eller løsner.
+        </p><br>
+
+        <h4>Forberedelse</h4>
+        <ul>
+            <li>Utfør håndhygiene.</li>
+            <li>Ta på rene hansker.</li>
+        </ul><br>
+
+        <h4>Fjern bandasjen</h4>
+        <ul>
+            <li>Fjern kompresser og/eller fikseringsbandasje forsiktig.</li>
+            <li>Løsne hjørnene først og arbeid innover mot midten.</li>
+            <li>Støtt kateteret underveis slik at det ikke henger fast i bandasjen.</li>
+            <li>Kast brukt kompress og bandasje i avfallsposen.</li>
+        </ul><br>
+
+        <h4>Observer</h4>
+        <ul>
+            <li>Kontroller kateterets posisjon.</li>
+            <li>Observer innstikkstedet og huden rundt for:
+                <ul>
+                    <li>Hudirritasjon</li>
+                    <li>Urinlekkasje</li>
+                    <li>Infeksjonstegn</li>
+                    <li>Blødning</li>
+                </ul>
+            </li>
+            <li>Ved mistanke om infeksjon, kontakt lege med tanke på mikrobiologisk prøvetaking.</li>
+        </ul><br>
+
+        <h4>Rengjøring</h4>
+        <ul>
+            <li>Ta av hanskene og utfør håndhygiene.</li>
+            <li>Ta på rene eller sterile hansker.</li>
+            <li>Bruk steril pinsett og steril tupfer fuktet med NaCl 9 mg/ml eller vandig klorheksidin.</li>
+            <li>Vask huden fra innstikkstedet og utover i en radius på 5–6 cm.</li>
+            <li>Bruk ny steril tupfer ved behov.</li>
+            <li>Rengjør kateterslangen fra innstikkstedet og utover med ny steril tupfer for hvert drag.</li>
+            <li>Tørk huden rundt kateteret med sterile tupfere.</li>
+        </ul>
+
+        <p><strong>Ved mistanke om infeksjon:</strong> Kontakt lege.</p><br>
+
+        <h4>Legg ny bandasje</h4>
+
+        <p><strong>Plasser kateteret skrått fremover mot hoftekammen.</strong></p>
+
+        <h5>Alternativ 1 – Kompressbandasje</h5>
+        <ul>
+            <li>Legg en steril splittkompress rundt innstikkstedet.</li>
+            <li>Ved behov bygg opp under kateterslangen med en brettet steril kompress slik at kateteret ligger i en myk bue.</li>
+            <li>Legg en steril kompress over kateteret og innstikkstedet.</li>
+            <li>Fest med filmbandasje.</li>
+        </ul>
+
+        <h5>Alternativ 2 – Steril fikseringsbandasje</h5>
+        <ul>
+            <li>Legg steril fikseringsbandasje/spesialbandasje i henhold til produktinformasjonen.</li>
+        </ul><br>
+
+        <h4>Avslutning</h4>
+        <ul>
+            <li>Fikser kateteret slik at det ikke oppstår drag, trykk mot huden eller knekk på slangen når pasienten beveger seg.</li>
+            <li>Ta hensyn til pasientens preferanser.</li>
+            <li>Ved behov pakk inn koblingspunkt og eventuell treveiskran med kompress.</li>
+            <li>Plasser urinoppsamlingsposen under nyrenivå og bruk individuelt tilpasset festeanordning.</li>
+        </ul>
+            
+        </div>
+    </div>
+
+    <div class="item">
+        <button class="question" onclick="toggleAccordion(this)">
+            <span>Dialyse</span>
+            <i class="fas fa-chevron-down icon"></i>
+        </button>
+        <div class="answer">
+           
+            <ol class = "tekst">
+  <li>Spritvask dialysebordet og organisatoren</li>
+  <li>Vask hender med flytende såpe</li>
+  <li>Legg frem nødvendig utstyr</li>
+  <li>Sjekk posens utløpsdato, styrke og volum</li>
+  <li>Åpne ytterposen på dialyseposen. Kontroller at væsken er klar og posen er hel</li>
+  <li>Ves tilsetning av medikamenter:</li>
+    <ul>a: Desinfiser injeksjonsporten til Extraneal posen med injeksjonstørk</ul>
+    <ul>b: Tilsett medisiner, aspirer og sprøyt inn en gang på nytt</ul>
+    <ul>c: Bland godt</ul>
+  <li>Åpne ytterposen på Y-settet</li>
+  <li>Heng opp dialyseposen og heng ned tømmeposen. Plasser disken </li>
+  <li>Sprit hender og la tørke</li>
+  <li>Skru beskyttelseshetten fra discen og legg den på bordet.</li>
+  <li>Skru pasientslangen fra desinfeksjonshetten og koble den til discen</li>
+  <li>Skru beskyttelseshetten du nettopp la på bordet, på den gamle desinfeksjonshetten. Trekk den rett ut og kast</li>
+   <li>Åpne klemmen på pasientslangen og tøm magen. Discen står automatisk i tømmeposisjon.</li>
+</ol>
+<p><strong>vent mens buken tømmes for dialyse</strong></p>
+        </div>
+    </div>
+
+    <div class="item">
+        <button class="question" onclick="toggleAccordion(this)">
+            <span>Sårstell</span>   
+            <i class="fas fa-chevron-down icon"></i>        
+        </button>
+        <div class="answer">
+            <p>Prosedyre for sårstell.</p>
+             <p id ="sårP"></p>
+            <label id = "sårLable">Skriv prosedyren for Sårstell her</label><br>
+            <textarea id = "sårInput"></textarea><br>
+            <button id = "sårButton">Send</button>
+
+        </div>
+    </div>
+
+    <div class="item">
+        <button class="question" onclick="toggleAccordion(this)">
+            <span>PEG-sonde</span>   
+             <i class="fas fa-chevron-down prosedyre-icon"></i> 
+        </button>
+        <div class="answer">
+            <p>Prosedyre for stell av PEG-sonde.</p>
+            <p id ="pegP"></p>
+            <label id = "pegLable">Skriv prosedyren for PEG her</label><br>
+            <textarea id = "pegInput"></textarea><br>
+            <button id = "pegButton">Send</button>
+
+        </div>
+    </div>
+
+
+ <div class="item">
+        <button class="question" onclick="toggleAccordion(this)">
+          <span>Dokumentasjon og journalføring</span>
+          <i class="fas fa-chevron-down icon"></i>
+        </button>
+        <div class="answer">
+          <p>Her finner du oversikt over forskjellige journaltyper i Gerica</p>
+         
+            <button id = "dokumentButton">Send</button>
+        </div>
+      </div>
+    
+
+</section>
+<script src="app.js" defer>
+  
+</script>
+ 
+</main>
+
+<script src="app.s" defer></script>
+</body>
+</html>
