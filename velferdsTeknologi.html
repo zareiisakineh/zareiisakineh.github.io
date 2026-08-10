@@ -13,14 +13,24 @@
     <meta name="theme-color" content="#2f5d9f">
     <link rel="icon" href="images/logo-192.png">
     <link rel="apple-touch-icon" href="images/logo-192.png">
-   <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+
 <script>
-  window.OneSignalDeferred = window.OneSignalDeferred || [];
-  OneSignalDeferred.push(async function(OneSignal) {
+window.OneSignalDeferred = window.OneSignalDeferred || [];
+
+OneSignalDeferred.push(async function(OneSignal) {
+
     await OneSignal.init({
-      appId: "0e03a069-61d0-4cfb-b535-f6ca8c1c5bad",
+        appId: "0e03a069-61d0-4cfb-b535-f6ca8c1c5bad",
+
+        serviceWorkerParam: {
+            scope: "/"
+        },
+
+        serviceWorkerPath: "sw.js"
     });
-  });
+
+});
 </script>
     <style>
   .answer img{
