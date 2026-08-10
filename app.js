@@ -409,9 +409,9 @@ if ("serviceWorker" in navigator) {
         "Prøver å registrere service worker..."
     );
 
-    navigator.serviceWorker.register(
-        "./sw.js"
-    )
+    navigator.serviceWorker.register("./sw.js", {
+    scope: "/"
+})
 
     .then(registration => {
 

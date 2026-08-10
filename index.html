@@ -25,14 +25,25 @@
         
          <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
 <script>
-  window.OneSignalDeferred = window.OneSignalDeferred || [];
-  OneSignalDeferred.push(async function(OneSignal) {
+window.OneSignalDeferred = window.OneSignalDeferred || [];
+
+OneSignalDeferred.push(async function(OneSignal) {
+
     await OneSignal.init({
-      appId: "94b667a8-75d3-454b-bf32-6c3c8a674504",
+        appId: "94b667a8-75d3-454b-bf32-6c3c8a674504",
+
+        serviceWorkerPath: "sw.js",
+
+        serviceWorkerParam: {
+            scope: "/"
+        }
     });
-     console.log("OneSignal er initialisert");
-  });
+
+    console.log("OneSignal er initialisert");
+
+});
 </script>
+
   <style>
    
     .card li{
