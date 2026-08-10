@@ -23,60 +23,14 @@
         <link rel="icon" href="images/logo-192.png">
         <link rel="apple-touch-icon" href="images/logo-192.png">
         
-         <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
-<script>
-window.OneSignalDeferred = window.OneSignalDeferred || [];
-
-OneSignalDeferred.push(async function(OneSignal) {
-
-    console.log("STARTER ONESIGNAL...");
-
-    // --------------------------------------------------
-    // REGISTRER TEAM SØR SERVICE WORKER FØRST
-    // --------------------------------------------------
-
-    try {
-
-        console.log("Registrerer Service Worker før OneSignal...");
-
-        const registration =
-            await navigator.serviceWorker.register("./sw.js", {
-                scope: "/"
-            });
-
-        console.log(
-            "Service Worker klar for OneSignal:",
-            registration.scope
-        );
-
-        // Vent til Service Worker faktisk er klar
-        await navigator.serviceWorker.ready;
-
-        console.log("Service Worker er READY");
-
-    } catch (error) {
-
-        console.error(
-            "Service Worker kunne ikke registreres:",
-            error
-        );
-
-        return;
-    }
-
-    // --------------------------------------------------
-    // START ONESIGNAL ETTERPÅ
-    // --------------------------------------------------
-
+       <script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function(OneSignal) {
     await OneSignal.init({
-        appId: "94b667a8-75d3-454b-bf32-6c3c8a674504"
+      appId: "0e03a069-61d0-4cfb-b535-f6ca8c1c5bad",
     });
-
-    console.log("OneSignal er initialisert");
-
-});
+  });
 </script>
-
   <style>
    
     .card li{
