@@ -401,7 +401,7 @@ window.addEventListener("load", () => {
 // ==========================================================
 // SERVICE WORKER
 // ==========================================================
-
+/*
 console.log("KOM TIL SERVICE WORKER DELEN");
 if ("serviceWorker" in navigator) {
 
@@ -432,6 +432,7 @@ if ("serviceWorker" in navigator) {
     });
 
 }
+    */
 // ==========================================================
 // INSTALLER TEAM SØR – ENKEL LØSNING
 // Android / iPhone / iPad / PC----Installasjonsboks
